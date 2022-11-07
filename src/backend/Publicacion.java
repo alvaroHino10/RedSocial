@@ -12,10 +12,11 @@ public class Publicacion {
     public String contenido;
     private int totalReaciones;
     private int numComentarios;
-    private String idPublicacion;
+    private int idPublicacion;
+
 
     public Publicacion(Usuario usuario, String contenido) {
-        idPublicacion =  UUID.randomUUID().toString();
+        idPublicacion =  0;
         this.usuario = usuario;
         this.contenido = contenido;
         this.fecha = new Date().toString();
@@ -46,7 +47,7 @@ public class Publicacion {
     }
 
     public void setTotalReaciones(int reacciones) {
-        this.totalReaciones += reacciones;
+        this.totalReaciones = reacciones;
     }
 
     public int getTotalReaciones() {
@@ -65,11 +66,11 @@ public class Publicacion {
         this.reacciones = listaReacciones;
     }
 
-    public String getId() {
+    public int getId() {
         return idPublicacion;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.idPublicacion = id;
     }
 
@@ -83,5 +84,9 @@ public class Publicacion {
         reacciones.put("Care",0);
         reacciones.put("Don't care", 0);
         reacciones.put("Please explain", 0);
+    }
+
+    public String toString(){
+        return "\"" + idPublicacion + "\"," + "\"" + usuario.getId() + "\"," + "\""+ contenido + "\"," + "\"" + fecha + "\"";
     }
 }

@@ -1,6 +1,7 @@
 package frontend;
 
 public enum Reaccion {
+    SINREACCION (0, "Me gusta", "frontend/imagenes/like.png"),
     LIKE(1,"like","frontend/imagenes/like.png"),
     LOVE(2,"love","frontend/imagenes/love.png"),
     SAD(3,"sad","frontend/imagenes/sad.png"),

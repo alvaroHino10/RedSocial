@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.MuroController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.MuroController">
    <children>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="138.0">
+      <VBox alignment="CENTER" prefHeight="489.0" prefWidth="234.0">
          <children>
             <ListView prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
-      <ScrollPane prefHeight="425.0" prefWidth="428.0">
+      <ScrollPane fx:id="panelPublicaciones" prefHeight="537.0" prefWidth="551.0">
          <content>
-            <ScrollBar nodeOrientation="RIGHT_TO_LEFT" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" />
+            <VBox fx:id="vBoxPublicaciones" prefHeight="425.0" prefWidth="361.0" />
          </content>
       </ScrollPane>
       <VBox alignment="BOTTOM_LEFT" prefHeight="400.0" prefWidth="228.0">
          <children>
-            <Button fx:id="btnNuevaPubli" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="39.0" prefWidth="147.0" text="Nueva Publicacion">
+            <Button fx:id="btnNuevaPubli" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#publicar" prefHeight="37.0" prefWidth="111.0" text="Nueva Publicacion">
                <font>
                   <Font name="Segoe UI Historic" size="15.0" />
                </font>

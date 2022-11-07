@@ -43,7 +43,7 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
          <children>
-            <Button fx:id="btnPublicar" mnemonicParsing="false" text="Publicar">
+            <Button fx:id="btnPublicar" mnemonicParsing="false" onAction="#publicar" text="Publicar">
                <font>
                   <Font name="Segoe UI Historic" size="18.0" />
                </font>

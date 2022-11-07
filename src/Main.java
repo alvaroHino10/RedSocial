@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("muro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("frontend/muro.fxml"));
         primaryStage.setTitle("Red Social");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
