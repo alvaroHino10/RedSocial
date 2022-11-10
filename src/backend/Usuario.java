@@ -13,7 +13,7 @@ public class Usuario {
         return nombre;
     }
 
-    public String toString(){
-        return idUsuario + nombre;
+    public String toString() {
+        return idUsuario + "," + nombre + "\n";
     }
 }

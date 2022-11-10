@@ -41,15 +41,15 @@ public class ServiciosUsuarios {
         return new ArrayList<>(datosUsuario.keySet());
     }
 
-    private String dataCsv(Map.Entry entry) {
-        return entry.getKey() + "," + entry.getValue() + "\n";
-    }
+//    private String dataCsv(Map.Entry entry) {
+//        return entry.getKey() + "," + entry.getValue() + "\n";
+//    }
 
     private void guardarDatosUsuario() {
         try {
-            FileWriter fileWriter = new FileWriter("Usuarios.csv");
+            FileWriter fileWriter = new FileWriter("src/Usuarios.csv");
             for (Map.Entry entry : datosUsuario.entrySet()) {
-                fileWriter.write(dataCsv(entry));
+                fileWriter.write(entry.getValue().toString());
             }
             fileWriter.close();
         } catch (IOException e) {
@@ -60,7 +60,7 @@ public class ServiciosUsuarios {
     private void leerDatosUsuario() {
         Scanner scanner;
         try {
-            scanner = new Scanner(new File("Usuarios.csv"));
+            scanner = new Scanner(new File("src/Usuarios.csv"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

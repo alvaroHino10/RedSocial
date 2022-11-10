@@ -34,20 +34,24 @@ public class NuevaPublicacionController {
     private String nombreUsuario;
     private Publicacion publicacion;
     private MuroController muroController;
+    private String contenidoPubli;
 
+    public NuevaPublicacionController() {
+        this.serviciosUsuarios = new ServiciosUsuarios();
+
+    }
 
     public void obtenerUsuario(KeyEvent keyEvent) {
-        String nombreUsuario = textUsuario.getText();
-        serviciosUsuarios.agregarUsuario(nombreUsuario);
+        this.nombreUsuario = textUsuario.getText();
     }
 
     public void obtenerPublicacion(KeyEvent keyEvent) {
-        String contenidoPubli = textPublicacion.getText();
-        Usuario usuario = new Usuario(0, nombreUsuario);
-        publicacion = new Publicacion(usuario, contenidoPubli);
+        this.contenidoPubli = textPublicacion.getText();
     }
 
     public void publicar(ActionEvent actionEvent) throws IOException {
+        Usuario usuario = new Usuario(0, nombreUsuario);
+        publicacion = new Publicacion(usuario, contenidoPubli);
         FXMLLoader publicacionLoader = new FXMLLoader();
         publicacionLoader.setLocation(getClass().getResource("/frontend/publicacion.fxml"));
         Parent parent = publicacionLoader.load();
@@ -56,6 +60,7 @@ public class NuevaPublicacionController {
         Node source = (Node)actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+        serviciosUsuarios.agregarUsuario(nombreUsuario);
         muroController.agregarNuevaPublicacion(parent);
     }
 
