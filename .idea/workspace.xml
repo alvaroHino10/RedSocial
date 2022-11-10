@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/care.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/dont-care.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/haha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/love.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/mad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/sad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/thinking.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/imagenes/wow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social.iml" beforeDir="false" afterPath="$PROJECT_DIR$/social.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servicios/ServiciosUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicios/ServiciosUsuarios.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +46,12 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/UMSS/ARQUI SOFTWARE/redSocial/EduardoArraya/RedSocial&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/UMSS/ARQUI SOFTWARE/redSocial/AlvaroHinojosa/redSocial&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
@@ -73,19 +63,27 @@
       <recent name="D:\UMSS\ARQUI SOFTWARE\redSocial\social\src\frontend" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="MAIN2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="social" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="social" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MAIN2" />
+      <item itemvalue="Application.Main" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -101,7 +99,12 @@
       <workItem from="1667431950408" duration="729000" />
       <workItem from="1667436636171" duration="1190000" />
       <workItem from="1667446485824" duration="9397000" />
-      <workItem from="1667574104304" duration="4600000" />
+      <workItem from="1667574104304" duration="11840000" />
+      <workItem from="1667587799973" duration="1279000" />
+      <workItem from="1667589242210" duration="19000" />
+      <workItem from="1667772477559" duration="3970000" />
+      <workItem from="1667831458327" duration="8222000" />
+      <workItem from="1668048861937" duration="9977000" />
     </task>
     <servers />
   </component>
@@ -118,6 +121,22 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/servicios/ServiciosUsuarios.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
