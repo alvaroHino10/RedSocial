@@ -13,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import servicios.ServiciosUsuarios;
 
 import java.io.IOException;
 
@@ -29,18 +30,20 @@ public class NuevaPublicacionController {
     @FXML
     private Label labelPublicacion;
 
-    private Usuario usuario;
+    private ServiciosUsuarios serviciosUsuarios;
+    private String nombreUsuario;
     private Publicacion publicacion;
     private MuroController muroController;
 
 
     public void obtenerUsuario(KeyEvent keyEvent) {
         String nombreUsuario = textUsuario.getText();
-        usuario = new Usuario(nombreUsuario);
+        serviciosUsuarios.agregarUsuario(nombreUsuario);
     }
 
     public void obtenerPublicacion(KeyEvent keyEvent) {
         String contenidoPubli = textPublicacion.getText();
+        Usuario usuario = new Usuario(0, nombreUsuario);
         publicacion = new Publicacion(usuario, contenidoPubli);
     }
 

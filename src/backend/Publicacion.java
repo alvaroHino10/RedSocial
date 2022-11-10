@@ -85,8 +85,4 @@ public class Publicacion {
         reacciones.put("Don't care", 0);
         reacciones.put("Please explain", 0);
     }
-
-    public String toString(){
-        return "\"" + idPublicacion + "\"," + "\"" + usuario.getId() + "\"," + "\""+ contenido + "\"," + "\"" + fecha + "\"";
-    }
 }
