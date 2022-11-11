@@ -1,7 +1,10 @@
 package frontend.controladores;
 
 
+import backend.Emocion;
 import backend.Publicacion;
+import backend.ServicioPublicacion;
+import backend.ServicioReacciones;
 import frontend.Reaccion;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
+import java.util.Map;
 
 public class PublicacionController {
 
@@ -88,33 +94,68 @@ public class PublicacionController {
 
 
     private Reaccion reaccion;
-    private Publicacion publicacion;
+
     private long tiempo;
 
+    private ServicioReacciones servicioReacciones;
+    private ServicioPublicacion servicioPublicacion;
+    private int idPublicacion;
+    private int idUsuario;
+    private Publicacion publicacion;
 
-    public void actualizarDatos(Publicacion publicacion) {
-        this.publicacion = publicacion;
-        labelReaccionesCont.setText(String.valueOf(publicacion.getTotalReaciones()));
-        nombreUsuario.setText(publicacion.getUsuario().getNombre());
-        horaPublicacion.setText(publicacion.getFecha());
-        descripcionPubli.setText(publicacion.getContenido());
-        labelComentarios.setText(publicacion.getComentarios() + " Comentarios");
-        reaccion = Reaccion.SINREACCION;
+    public PublicacionController() {
+        servicioReacciones = new ServicioReacciones();
+        servicioPublicacion = new ServicioPublicacion();
     }
 
-    public void actualizarReaccion(Reaccion reaccion) {
+
+    public void actualizarDatos(int idUsuario, String nombreUsr, String contenido) {
+        this.idPublicacion = getPublicacion(contenido);
+        this.idUsuario = idUsuario;
+        this.publicacion = servicioPublicacion.buscarPublicacion(idPublicacion);
+        int totalReacciones = getTotalReacciones();
+        labelReaccionesCont.setText(String.valueOf(totalReacciones));
+        nombreUsuario.setText(nombreUsr);
+        horaPublicacion.setText(this.publicacion.getFecha());
+        descripcionPubli.setText(this.publicacion.getContenido());
+        labelComentarios.setText(0 + " Comentarios");
+        reaccion = Reaccion.MeGusta;
+    }
+
+    private int getTotalReacciones() {
+        int total = 0;
+        Map<Emocion, Integer> emociones = servicioReacciones.listarResumenReacciones(idPublicacion);
+        for (int valor : emociones.values()) {
+            total += valor;
+        }
+        return total;
+    }
+
+    private int getPublicacion(String contenido) {
+        List<Integer> publicacions = servicioPublicacion.listarPublicaciones();
+        for (int idPub : publicacions) {
+            Publicacion actual = new Publicacion(idPub, idUsuario, contenido, "");
+            Publicacion publicacion = servicioPublicacion.buscarPublicacion(idPub);
+            if (publicacion.equals(actual)) {
+                return idPub;
+            }
+        }
+        return 0;
+    }
+
+    public void actualizarReaccion(Emocion emocion, Reaccion reaccion) {
         Image image = new Image(reaccion.getImgSrc());
         imgMeGusta.setImage(image);
-        labelMeGusta.setText(reaccion.getNombre());
+        labelMeGusta.setText(emocion.name());
 
-        if (this.reaccion == Reaccion.SINREACCION) {
-            this.publicacion.setTotalReaciones(this.publicacion.getTotalReaciones() + 1);
+        if (this.reaccion == Reaccion.MeGusta) {
+            servicioReacciones.agregarReaccion(this.idPublicacion, this.idUsuario, emocion);
         }
         this.reaccion = reaccion;
-        if (this.reaccion == Reaccion.SINREACCION) {
-            this.publicacion.setTotalReaciones(this.publicacion.getTotalReaciones() - 1);
+        if (this.reaccion == Reaccion.MeGusta) {
+            //this.publicacion.setTotalReaciones(this.publicacion.getTotalReaciones() - 1);
         }
-        labelReaccionesCont.setText(String.valueOf(this.publicacion.getTotalReaciones()));
+        labelReaccionesCont.setText(String.valueOf(getTotalReacciones()));
     }
 
 
@@ -123,11 +164,12 @@ public class PublicacionController {
         hBoxReacciones.setVisible(true);
 
     }
+
     public void reaccionarLike(MouseEvent mouseEvent) {
-        if (this.reaccion == Reaccion.SINREACCION) {
-            actualizarReaccion(Reaccion.LIKE);
+        if (this.reaccion == Reaccion.MeGusta) {
+            actualizarReaccion(Emocion.Like, Reaccion.Like);
         } else {
-            actualizarReaccion(Reaccion.SINREACCION);
+            actualizarReaccion(Emocion.Like, Reaccion.MeGusta);
         }
     }
 

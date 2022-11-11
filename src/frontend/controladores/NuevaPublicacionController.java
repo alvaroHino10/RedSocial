@@ -1,6 +1,7 @@
 package frontend.controladores;
 
 import backend.Publicacion;
+import backend.ServicioPublicacion;
 import backend.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,9 +14,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import servicios.ServiciosUsuarios;
+import backend.ServicioUsuarios;
 
 import java.io.IOException;
+import java.util.List;
 
 public class NuevaPublicacionController {
 
@@ -30,14 +32,15 @@ public class NuevaPublicacionController {
     @FXML
     private Label labelPublicacion;
 
-    private ServiciosUsuarios serviciosUsuarios;
+    private final ServicioUsuarios servicioUsuarios;
+    private final ServicioPublicacion servicioPublicacion;
     private String nombreUsuario;
-    private Publicacion publicacion;
     private MuroController muroController;
     private String contenidoPubli;
 
     public NuevaPublicacionController() {
-        this.serviciosUsuarios = new ServiciosUsuarios();
+        this.servicioUsuarios = new ServicioUsuarios();
+        this.servicioPublicacion =  new ServicioPublicacion();
 
     }
 
@@ -50,18 +53,29 @@ public class NuevaPublicacionController {
     }
 
     public void publicar(ActionEvent actionEvent) throws IOException {
-        Usuario usuario = new Usuario(0, nombreUsuario);
-        publicacion = new Publicacion(usuario, contenidoPubli);
         FXMLLoader publicacionLoader = new FXMLLoader();
         publicacionLoader.setLocation(getClass().getResource("/frontend/publicacion.fxml"));
         Parent parent = publicacionLoader.load();
         PublicacionController publicacionController = publicacionLoader.getController();
-        publicacionController.actualizarDatos(publicacion);
         Node source = (Node)actionEvent.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
-        serviciosUsuarios.agregarUsuario(nombreUsuario);
+        servicioUsuarios.agregarUsuario(nombreUsuario);
+        int idUsuario = buscarUsuarioId();
+        servicioPublicacion.agregarPublicacion(idUsuario, contenidoPubli);
+        publicacionController.actualizarDatos(idUsuario, nombreUsuario, contenidoPubli);
         muroController.agregarNuevaPublicacion(parent);
+    }
+
+    private int buscarUsuarioId(){
+        List<Integer> idsUsuarios = servicioUsuarios.listarUsuarios();
+        for (int idActual : idsUsuarios) {
+            Usuario usuario = servicioUsuarios.buscarUsuario(idActual);
+            if (usuario.getNombre().equals(this.nombreUsuario)) {
+                return idActual;
+            }
+        }
+        return 0;
     }
 
     public void transicionVentana(MuroController muroController) {

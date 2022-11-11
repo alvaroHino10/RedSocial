@@ -47,8 +47,9 @@ public class ServicioPublicacion {
     private void guardarDatosPublicacion() {
         try {
             FileWriter fileWriter = new FileWriter("src/Publicaciones.csv");
-            for (Map.Entry entry : datosPublicacion.entrySet()) {
-                fileWriter.write(entry.getValue().toString());
+            for (Map.Entry<Integer, Publicacion> entry : datosPublicacion.entrySet()) {
+                String formatCsv = (entry.getValue().toString());
+                fileWriter.write(formatCsv);
             }
             fileWriter.close();
         } catch (IOException e) {

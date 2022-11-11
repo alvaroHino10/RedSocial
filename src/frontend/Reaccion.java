@@ -1,47 +1,36 @@
 package frontend;
 
 public enum Reaccion {
-    SINREACCION (0, "Me gusta", "frontend/imagenes/like.png"),
-    LIKE(1,"like","frontend/imagenes/like.png"),
-    LOVE(2,"love","frontend/imagenes/love.png"),
-    SAD(3,"sad","frontend/imagenes/sad.png"),
-    HAPPY(4,"happy","frontend/imagenes/haha.png"),
-    MAD(5,"mad","frontend/imagenes/mad.png"),
-    SURPRISE(6,"surprise","frontend/imagenes/wow.png"),
-    CARE(7,"care","frontend/imagenes/care.png"),
-    DONT_CARE(8,"dontCare","frontend/imagenes/dont-care.png"),
-    PLEASE_EXPLAIN(9,"pleaseExplain","frontend/imagenes/thinking.png");
+    MeGusta ("Me gusta", "frontend/imagenes/like.png", ""),
+    Like("Like","frontend/imagenes/like.png", "like"),
+    Love("Love","frontend/imagenes/love.png", "love"),
+    Sad("Sad","frontend/imagenes/sad.png", "sad"),
+    Happy("Happy","frontend/imagenes/haha.png", "happy"),
+    Mad("Mad","frontend/imagenes/mad.png", "mad"),
+    Surprise("Surprise","frontend/imagenes/wow.png", "surprise"),
+    Care("Care","frontend/imagenes/care.png", "care"),
+    Indifferent("Indifferent","frontend/imagenes/dont-care.png", "dontCare"),
+    Explain("Explain","frontend/imagenes/thinking.png", "explain");
 
-    private int id;
-    private String nombre;
-    private String imgSrc;
+    private final String nombre;
+    private final String imgSrc;
+    private final String idImageView;
 
-    Reaccion(int id, String nombre, String imgSrc) {
-        this.id = id;
+    Reaccion(String nombre, String imgSrc, String idImageView) {
         this.nombre = nombre;
         this.imgSrc = imgSrc;
-    }
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.idImageView = idImageView;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getImgSrc() {
         return imgSrc;
     }
 
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
+    public String getIdImageView() {
+        return idImageView;
     }
 }

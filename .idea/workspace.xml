@@ -4,9 +4,14 @@
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social.iml" beforeDir="false" afterPath="$PROJECT_DIR$/social.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Publicaciones.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuarios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Publicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Publicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/ServicioPublicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ServicioPublicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/Reaccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Reaccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicios/ServiciosUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicios/ServiciosUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +51,13 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/UMSS/ARQUI SOFTWARE/redSocial/AlvaroHinojosa/redSocial&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/usr/lib/jvm/javafx-sdk-19&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -75,7 +80,7 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="social" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;/usr/lib/jvm/javafx-sdk-19/lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,14 +131,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/servicios/ServiciosUsuarios.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
