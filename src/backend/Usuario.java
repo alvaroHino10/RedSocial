@@ -1,8 +1,8 @@
 package backend;
 
 public class Usuario {
-    private String nombre;
-    private int idUsuario;
+    private final String nombre;
+    private final int idUsuario;
 
     public Usuario(int idUsuario, String nombre) {
         this.nombre = nombre;
