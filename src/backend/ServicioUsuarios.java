@@ -34,10 +34,6 @@ public class ServicioUsuarios {
         return new ArrayList<>(datosUsuario.keySet());
     }
 
-//    private String dataCsv(Map.Entry entry) {
-//        return entry.getKey() + "," + entry.getValue() + "\n";
-//    }
-
     private void guardarDatosUsuario() {
         try {
             FileWriter fileWriter = new FileWriter("src/Usuarios.csv");

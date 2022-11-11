@@ -103,15 +103,12 @@ public class PublicacionController {
     private int idUsuario;
     private Publicacion publicacion;
 
-    public PublicacionController() {
-        servicioReacciones = new ServicioReacciones();
-        servicioPublicacion = new ServicioPublicacion();
-    }
-
 
     public void actualizarDatos(int idUsuario, String nombreUsr, String contenido) {
-        this.idPublicacion = getPublicacion(contenido);
+        servicioReacciones = new ServicioReacciones();
+        servicioPublicacion = new ServicioPublicacion();
         this.idUsuario = idUsuario;
+        this.idPublicacion = getPublicacion(contenido);
         this.publicacion = servicioPublicacion.buscarPublicacion(idPublicacion);
         int totalReacciones = getTotalReacciones();
         labelReaccionesCont.setText(String.valueOf(totalReacciones));

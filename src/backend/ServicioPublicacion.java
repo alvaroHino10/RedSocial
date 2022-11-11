@@ -48,7 +48,7 @@ public class ServicioPublicacion {
         try {
             FileWriter fileWriter = new FileWriter("src/Publicaciones.csv");
             for (Map.Entry<Integer, Publicacion> entry : datosPublicacion.entrySet()) {
-                String formatCsv = (entry.getValue().toString());
+                String formatCsv = (entry.getValue().toString() + "\n");
                 fileWriter.write(formatCsv);
             }
             fileWriter.close();

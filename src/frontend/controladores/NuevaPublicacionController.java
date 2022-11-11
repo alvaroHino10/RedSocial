@@ -32,17 +32,11 @@ public class NuevaPublicacionController {
     @FXML
     private Label labelPublicacion;
 
-    private final ServicioUsuarios servicioUsuarios;
-    private final ServicioPublicacion servicioPublicacion;
+    private ServicioUsuarios servicioUsuarios;
+    private ServicioPublicacion servicioPublicacion;
     private String nombreUsuario;
     private MuroController muroController;
     private String contenidoPubli;
-
-    public NuevaPublicacionController() {
-        this.servicioUsuarios = new ServicioUsuarios();
-        this.servicioPublicacion =  new ServicioPublicacion();
-
-    }
 
     public void obtenerUsuario(KeyEvent keyEvent) {
         this.nombreUsuario = textUsuario.getText();
@@ -53,6 +47,8 @@ public class NuevaPublicacionController {
     }
 
     public void publicar(ActionEvent actionEvent) throws IOException {
+        this.servicioUsuarios = new ServicioUsuarios();
+        this.servicioPublicacion =  new ServicioPublicacion();
         FXMLLoader publicacionLoader = new FXMLLoader();
         publicacionLoader.setLocation(getClass().getResource("/frontend/publicacion.fxml"));
         Parent parent = publicacionLoader.load();
@@ -68,14 +64,15 @@ public class NuevaPublicacionController {
     }
 
     private int buscarUsuarioId(){
+        int idRes = 0;
         List<Integer> idsUsuarios = servicioUsuarios.listarUsuarios();
         for (int idActual : idsUsuarios) {
             Usuario usuario = servicioUsuarios.buscarUsuario(idActual);
             if (usuario.getNombre().equals(this.nombreUsuario)) {
-                return idActual;
+                idRes = idActual;
             }
         }
-        return 0;
+        return idRes;
     }
 
     public void transicionVentana(MuroController muroController) {

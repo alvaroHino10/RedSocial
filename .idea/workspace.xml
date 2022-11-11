@@ -3,15 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social.iml" beforeDir="false" afterPath="$PROJECT_DIR$/social.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Publicaciones.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuarios.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Publicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Publicacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/ServicioPublicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ServicioPublicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/Reaccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Reaccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/ServicioUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ServicioUsuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +54,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -130,10 +127,15 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="3" />
+          <line>72</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
