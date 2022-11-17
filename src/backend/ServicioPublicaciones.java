@@ -8,14 +8,14 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class ServicioPublicacion {
+public class ServicioPublicaciones {
 
     private final SortedMap<Integer, Publicacion> datosPublicacion;
     private int contIds;
     private final List<Integer> idsUsuarios;
     private final ServicioUsuarios servicioUsuarios;
 
-    public ServicioPublicacion() {
+    public ServicioPublicaciones() {
         this.datosPublicacion = new TreeMap<>();
         this.servicioUsuarios = new ServicioUsuarios();
         this.idsUsuarios = this.servicioUsuarios.listarUsuarios();

@@ -1,7 +1,5 @@
 package backend;
 
-import java.util.HashMap;
-
 public class Publicacion {
     public int idUsuario;
     public String fecha;

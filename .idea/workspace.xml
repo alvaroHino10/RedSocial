@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Publicaciones.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reacciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reacciones.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuarios.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/ServicioPublicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ServicioPublicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/ServicioUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ServicioUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Publicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Publicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/ServicioPublicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ServicioPublicaciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
     </list>
@@ -129,13 +131,8 @@
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java</url>
-          <line>72</line>
+          <line>67</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

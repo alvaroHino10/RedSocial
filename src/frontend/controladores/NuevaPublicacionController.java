@@ -1,7 +1,6 @@
 package frontend.controladores;
 
-import backend.Publicacion;
-import backend.ServicioPublicacion;
+import backend.ServicioPublicaciones;
 import backend.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +32,7 @@ public class NuevaPublicacionController {
     private Label labelPublicacion;
 
     private ServicioUsuarios servicioUsuarios;
-    private ServicioPublicacion servicioPublicacion;
+    private ServicioPublicaciones servicioPublicaciones;
     private String nombreUsuario;
     private MuroController muroController;
     private String contenidoPubli;
@@ -48,7 +47,7 @@ public class NuevaPublicacionController {
 
     public void publicar(ActionEvent actionEvent) throws IOException {
         this.servicioUsuarios = new ServicioUsuarios();
-        this.servicioPublicacion =  new ServicioPublicacion();
+        this.servicioPublicaciones =  new ServicioPublicaciones();
         FXMLLoader publicacionLoader = new FXMLLoader();
         publicacionLoader.setLocation(getClass().getResource("/frontend/publicacion.fxml"));
         Parent parent = publicacionLoader.load();
@@ -58,7 +57,7 @@ public class NuevaPublicacionController {
         stage.close();
         servicioUsuarios.agregarUsuario(nombreUsuario);
         int idUsuario = buscarUsuarioId();
-        servicioPublicacion.agregarPublicacion(idUsuario, contenidoPubli);
+        servicioPublicaciones.agregarPublicacion(idUsuario, contenidoPubli);
         publicacionController.actualizarDatos(idUsuario, nombreUsuario, contenidoPubli);
         muroController.agregarNuevaPublicacion(parent);
     }

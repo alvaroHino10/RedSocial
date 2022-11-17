@@ -3,11 +3,10 @@ package frontend.controladores;
 
 import backend.Emocion;
 import backend.Publicacion;
-import backend.ServicioPublicacion;
+import backend.ServicioPublicaciones;
 import backend.ServicioReacciones;
 import frontend.Reaccion;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -98,7 +97,7 @@ public class PublicacionController {
     private long tiempo;
 
     private ServicioReacciones servicioReacciones;
-    private ServicioPublicacion servicioPublicacion;
+    private ServicioPublicaciones servicioPublicaciones;
     private int idPublicacion;
     private int idUsuario;
     private Publicacion publicacion;
@@ -106,10 +105,10 @@ public class PublicacionController {
 
     public void actualizarDatos(int idUsuario, String nombreUsr, String contenido) {
         servicioReacciones = new ServicioReacciones();
-        servicioPublicacion = new ServicioPublicacion();
+        servicioPublicaciones = new ServicioPublicaciones();
         this.idUsuario = idUsuario;
         this.idPublicacion = getPublicacion(contenido);
-        this.publicacion = servicioPublicacion.buscarPublicacion(idPublicacion);
+        this.publicacion = servicioPublicaciones.buscarPublicacion(idPublicacion);
         int totalReacciones = getTotalReacciones();
         labelReaccionesCont.setText(String.valueOf(totalReacciones));
         nombreUsuario.setText(nombreUsr);
@@ -129,10 +128,10 @@ public class PublicacionController {
     }
 
     private int getPublicacion(String contenido) {
-        List<Integer> publicacions = servicioPublicacion.listarPublicaciones();
+        List<Integer> publicacions = servicioPublicaciones.listarPublicaciones();
         for (int idPub : publicacions) {
             Publicacion actual = new Publicacion(idPub, idUsuario, contenido, "");
-            Publicacion publicacion = servicioPublicacion.buscarPublicacion(idPub);
+            Publicacion publicacion = servicioPublicaciones.buscarPublicacion(idPub);
             if (publicacion.equals(actual)) {
                 return idPub;
             }
