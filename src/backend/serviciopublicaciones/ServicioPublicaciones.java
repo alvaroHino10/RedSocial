@@ -1,5 +1,7 @@
-package backend;
+package backend.serviciopublicaciones;
 
+
+import backend.serviciousuarios.ServicioUsuarios;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,11 +25,13 @@ public class ServicioPublicaciones {
         this.contIds = datosPublicacion.size();
     }
 
-    public void agregarPublicacion(int idUsuario, String contenido) {
+    public int agregarPublicacion(int idUsuario, String contenido) {
         Publicacion publicacion = new Publicacion(contIds + 1, idUsuario, contenido, fecha());
-        datosPublicacion.put(contIds + 1, publicacion);
+        int idActual = contIds + 1;
+        datosPublicacion.put(idActual, publicacion);
         guardarDatosPublicacion();
         contIds = datosPublicacion.size();
+        return idActual;
     }
 
     public Publicacion buscarPublicacion(int idPublicacion) {
@@ -46,7 +50,7 @@ public class ServicioPublicaciones {
 
     private void guardarDatosPublicacion() {
         try {
-            FileWriter fileWriter = new FileWriter("src/Publicaciones.csv");
+            FileWriter fileWriter = new FileWriter("Publicaciones.csv");
             for (Map.Entry<Integer, Publicacion> entry : datosPublicacion.entrySet()) {
                 String formatCsv = (entry.getValue().toString() + "\n");
                 fileWriter.write(formatCsv);
@@ -60,7 +64,7 @@ public class ServicioPublicaciones {
     private void leerDatosPublicacion() {
         Scanner scanner;
         try {
-            scanner = new Scanner(new File("src/Publicaciones.csv"));
+            scanner = new Scanner(new File("Publicaciones.csv"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

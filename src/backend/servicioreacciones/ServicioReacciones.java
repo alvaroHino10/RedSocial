@@ -1,4 +1,4 @@
-package backend;
+package backend.servicioreacciones;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,9 +24,8 @@ public class ServicioReacciones {
         reaccionesListDatos.add(String.valueOf(idPublicacion));
         reaccionesListDatos.add(String.valueOf(idUsuario));
         reaccionesListDatos.add(reaccion.name());
-        datosReacciones.put(contIds + 1, reaccionesListDatos);
+        datosReacciones.put(idPublicacion, reaccionesListDatos);
         guardarReaccion();
-        contIds = datosReacciones.size();
     }
 
     public Map<Emocion, Integer> listarResumenReacciones(int idPublicacion) {
@@ -57,7 +56,7 @@ public class ServicioReacciones {
 
     private void guardarReaccion() {
         try {
-            FileWriter fileWriter = new FileWriter("src/Reacciones.csv");
+            FileWriter fileWriter = new FileWriter("Reacciones.csv");
             for (Map.Entry<Integer, List<String>> entry : datosReacciones.entrySet()) {
                 String formatCsv = toCsv(entry.getValue());
                 fileWriter.write(formatCsv);
@@ -72,7 +71,7 @@ public class ServicioReacciones {
         Scanner scanner;
         contIds = 0;
         try {
-            scanner = new Scanner(new File("src/Reacciones.csv"));
+            scanner = new Scanner(new File("Reacciones.csv"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -80,7 +79,7 @@ public class ServicioReacciones {
         while (scanner.hasNextLine()) {
             String data = scanner.nextLine();
             String[] datosArreglo = data.split(",");
-            datosReacciones.put(contIds + 1, new ArrayList<>(List.of(datosArreglo)));
+            datosReacciones.put(Integer.valueOf(datosArreglo[0]), new ArrayList<>(List.of(datosArreglo)));
             contIds++;
         }
     }

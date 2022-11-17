@@ -1,4 +1,4 @@
-package backend;
+package backend.serviciousuarios;
 
 public class Usuario {
     private final String nombre;

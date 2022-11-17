@@ -1,7 +1,8 @@
 package frontend.controladores;
 
-import backend.ServicioPublicaciones;
-import backend.Usuario;
+import backend.serviciopublicaciones.ServicioPublicaciones;
+import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciousuarios.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,10 +14,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import backend.ServicioUsuarios;
+import backend.serviciousuarios.ServicioUsuarios;
 
 import java.io.IOException;
-import java.util.List;
 
 public class NuevaPublicacionController {
 
@@ -37,6 +37,14 @@ public class NuevaPublicacionController {
     private MuroController muroController;
     private String contenidoPubli;
 
+    private int idPubliActual;
+    private int idUsrActual;
+    private ServicioReacciones servicioReacciones;
+
+    public NuevaPublicacionController(){
+        FXMLLoader muroLoader = new FXMLLoader(getClass().getResource("/frontend/muro.fxml"));
+        muroController = muroLoader.getController();
+    }
     public void obtenerUsuario(KeyEvent keyEvent) {
         this.nombreUsuario = textUsuario.getText();
     }
@@ -46,35 +54,26 @@ public class NuevaPublicacionController {
     }
 
     public void publicar(ActionEvent actionEvent) throws IOException {
-        this.servicioUsuarios = new ServicioUsuarios();
-        this.servicioPublicaciones =  new ServicioPublicaciones();
         FXMLLoader publicacionLoader = new FXMLLoader();
         publicacionLoader.setLocation(getClass().getResource("/frontend/publicacion.fxml"));
         Parent parent = publicacionLoader.load();
         PublicacionController publicacionController = publicacionLoader.getController();
-        Node source = (Node)actionEvent.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
+        publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
+        Stage stage = (Stage) btnPublicar.getScene().getWindow();
         stage.close();
-        servicioUsuarios.agregarUsuario(nombreUsuario);
-        int idUsuario = buscarUsuarioId();
-        servicioPublicaciones.agregarPublicacion(idUsuario, contenidoPubli);
-        publicacionController.actualizarDatos(idUsuario, nombreUsuario, contenidoPubli);
+        this.idUsrActual = servicioUsuarios.agregarUsuario(nombreUsuario);
+        this.idPubliActual = servicioPublicaciones.agregarPublicacion(idUsrActual, contenidoPubli);
+        publicacionController.actualizarDatos(idUsrActual, nombreUsuario, contenidoPubli, idPubliActual);
         muroController.agregarNuevaPublicacion(parent);
     }
 
-    private int buscarUsuarioId(){
-        int idRes = 0;
-        List<Integer> idsUsuarios = servicioUsuarios.listarUsuarios();
-        for (int idActual : idsUsuarios) {
-            Usuario usuario = servicioUsuarios.buscarUsuario(idActual);
-            if (usuario.getNombre().equals(this.nombreUsuario)) {
-                idRes = idActual;
-            }
-        }
-        return idRes;
+    public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones) {
+        this.servicioUsuarios = servicioUsuarios;
+        this.servicioPublicaciones = servicioPublicaciones;
+        this.servicioReacciones = servicioReacciones;
     }
 
-    public void transicionVentana(MuroController muroController) {
+    public void agregarControllerMuro(MuroController muroController){
         this.muroController = muroController;
     }
 }

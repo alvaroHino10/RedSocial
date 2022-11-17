@@ -1,5 +1,8 @@
 package frontend;
 
+import backend.serviciopublicaciones.ServicioPublicaciones;
+import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciousuarios.ServicioUsuarios;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -7,24 +10,34 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class IU extends Application {
+public class IU{
 
-    private FXMLLoader inicio;
-    private Parent parent;
-    public IU(){
-        inicio = new FXMLLoader((getClass().getResource("muro.fxml")));
-    }
+    private ServicioReacciones servicioReacciones;
+    private ServicioUsuarios servicioUsuarios;
+    private ServicioPublicaciones servicioPublicaciones;
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        parent = inicio.load();
-        stage.setTitle("RED SOCIAL");
-        stage.setScene(new Scene(parent));
-        stage.show();
+    public IU(ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones, ServicioUsuarios servicioUsuarios) {
+        this.servicioReacciones = servicioReacciones;
+        this.servicioUsuarios = servicioUsuarios;
+        this.servicioPublicaciones = servicioPublicaciones;
     }
 
     public void iniciar(){
-        Platform.startup(()->{});
-        launch();
+        final Interfaz interfaz = new Interfaz(servicioPublicaciones, servicioReacciones, servicioUsuarios);
+        try {
+            interfaz.init();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        Platform.startup(()->{
+            Stage stage = new Stage();
+            try {
+                interfaz.start(stage);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        });
     }
 }

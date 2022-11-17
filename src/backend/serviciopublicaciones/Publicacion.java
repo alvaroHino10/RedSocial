@@ -1,4 +1,4 @@
-package backend;
+package backend.serviciopublicaciones;
 
 public class Publicacion {
     public int idUsuario;

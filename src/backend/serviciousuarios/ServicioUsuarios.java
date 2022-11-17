@@ -1,4 +1,4 @@
-package backend;
+package backend.serviciousuarios;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,11 +17,13 @@ public class ServicioUsuarios {
         this.contIds = datosUsuario.size();
     }
 
-    public void agregarUsuario(String nombre) {
+    public int agregarUsuario(String nombre) {
         Usuario usuario = new Usuario(contIds + 1, nombre);
-        datosUsuario.put(contIds + 1, usuario);
+        int idActual = contIds + 1;
+        datosUsuario.put(idActual, usuario);
         guardarDatosUsuario();
         contIds = datosUsuario.size();
+        return idActual;
     }
 
     public void eliminarUsuario(String nombre){}
@@ -36,7 +38,7 @@ public class ServicioUsuarios {
 
     private void guardarDatosUsuario() {
         try {
-            FileWriter fileWriter = new FileWriter("src/Usuarios.csv");
+            FileWriter fileWriter = new FileWriter("Usuarios.csv");
             for (Map.Entry entry : datosUsuario.entrySet()) {
                 fileWriter.write(entry.getValue().toString());
             }
@@ -49,7 +51,7 @@ public class ServicioUsuarios {
     private void leerDatosUsuario() {
         Scanner scanner;
         try {
-            scanner = new Scanner(new File("src/Usuarios.csv"));
+            scanner = new Scanner(new File("Usuarios.csv"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
