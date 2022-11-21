@@ -43,7 +43,7 @@ public class ServicioPublicaciones {
     }
 
     private String fecha() {
-        String pattern = "dd-MM-yyyy";
+        String pattern = "dd/MM/yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         return simpleDateFormat.format(new Date());
     }
