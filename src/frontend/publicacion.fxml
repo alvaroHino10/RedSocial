@@ -106,7 +106,7 @@
       </StackPane>
       <HBox fx:id="hBoxReacciones" maxWidth="-Infinity">
          <children>
-            <ImageView fx:id="like" fitHeight="40.0" fitWidth="40.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Like" fitHeight="40.0" fitWidth="40.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/like.png" />
                </image>
@@ -114,7 +114,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="love" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Love" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/love.png" />
                </image>
@@ -122,7 +122,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="happy" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Happy" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/haha.png" />
                </image>
@@ -130,7 +130,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="care" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Care" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/care.png" />
                </image>
@@ -138,7 +138,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="indifferent" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Indifferent" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/dont-care.png" />
                </image>
@@ -146,7 +146,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="mad" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Mad" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/mad.png" />
                </image>
@@ -154,7 +154,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="sad" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Sad" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/sad.png" />
                </image>
@@ -162,7 +162,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="explain" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Explain" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/thinking.png" />
                </image>
@@ -170,7 +170,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="surprise" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Surprise" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imagenes/wow.png" />
                </image>

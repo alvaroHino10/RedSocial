@@ -6,7 +6,6 @@ import backend.serviciopublicaciones.Publicacion;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciousuarios.ServicioUsuarios;
-import frontend.Reaccion;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -18,43 +17,19 @@ import java.util.Map;
 public class PublicacionController {
 
     @FXML
-    private ImageView love;
-
-    @FXML
-    private ImageView surprise;
-
-    @FXML
     private ImageView imgUsuario;
 
     @FXML
     private HBox hBoxReaccionesview;
 
     @FXML
-    private ImageView dontCare;
-
-    @FXML
     private HBox hBoxReacciones;
-
-    @FXML
-    private ImageView imgMeGusta;
-
-    @FXML
-    private ImageView like;
 
     @FXML
     private HBox hBoxReaccionar;
 
     @FXML
-    private ImageView happy;
-
-    @FXML
-    private Label labelMeGusta;
-
-    @FXML
     private Label nombreUsuario;
-
-    @FXML
-    private ImageView thinking;
 
     @FXML
     private Label labelComentarios;
@@ -69,22 +44,10 @@ public class PublicacionController {
     private Label labelReaccionesCont;
 
     @FXML
-    private ImageView mad;
-
-    @FXML
     private Label horaPublicacion;
 
-    @FXML
-    private ImageView sad;
 
-    @FXML
-    private ImageView care;
-
-
-    private Reaccion reaccion;
-
-    private long tiempo;
-
+    private Emocion reaccion;
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
@@ -103,7 +66,6 @@ public class PublicacionController {
         horaPublicacion.setText(this.publicacion.getFecha());
         descripcionPubli.setText(this.publicacion.getContenido());
         labelComentarios.setText(0 + " Comentarios");
-        reaccion = Reaccion.MeGusta;
     }
 
     private int getTotalReacciones() {
@@ -117,17 +79,13 @@ public class PublicacionController {
 
     public void reaccionEspecial(MouseEvent mouseEvent) {
         String imageView = ((ImageView) mouseEvent.getSource()).getId();
-        for (Reaccion reaccion : Reaccion.values()) {
-            if (reaccion.getNombre().equals(imageView)) {
-                Emocion emocion = buscarIgualEmocion(reaccion.name());
-                servicioReacciones.agregarReaccion(idPubliActual, idUsuario, emocion);
+        for (Emocion emocion : Emocion.values()) {
+            if (emocion.name().equals(imageView)) {
+                this.reaccion = emocion;
+                servicioReacciones.agregarReaccion(idPubliActual, idUsuario, this.reaccion);
             }
         }
         labelReaccionesCont.setText(String.valueOf(getTotalReacciones()));
-    }
-
-    private Emocion buscarIgualEmocion(String nombreReacc) {
-        return Emocion.valueOf(nombreReacc);
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones) {

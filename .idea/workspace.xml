@@ -3,23 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social.iml" beforeDir="false" afterPath="$PROJECT_DIR$/social.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Publicaciones.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reacciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Reacciones.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Emocion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/servicioreacciones/Emocion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Publicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciopublicaciones/Publicacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/ServicioPublicaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/ServicioReacciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/servicioreacciones/ServicioReacciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/ServicioUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/IU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/IU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/Reaccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Reaccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Publicaciones.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/Reaccion.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/muro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/muro.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +108,7 @@
       <workItem from="1667772477559" duration="3970000" />
       <workItem from="1667831458327" duration="8222000" />
       <workItem from="1668048861937" duration="9977000" />
-      <workItem from="1668667315032" duration="1563000" />
+      <workItem from="1668667315032" duration="2881000" />
     </task>
     <servers />
   </component>
