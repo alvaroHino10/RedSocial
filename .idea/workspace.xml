@@ -5,10 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Publicaciones.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/Reaccion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +106,7 @@
       <workItem from="1667831458327" duration="8222000" />
       <workItem from="1668048861937" duration="9977000" />
       <workItem from="1668667315032" duration="2881000" />
+      <workItem from="1669049708179" duration="1512000" />
     </task>
     <servers />
   </component>
@@ -125,6 +123,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

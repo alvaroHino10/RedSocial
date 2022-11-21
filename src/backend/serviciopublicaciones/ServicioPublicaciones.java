@@ -71,8 +71,8 @@ public class ServicioPublicaciones {
         scanner.useDelimiter(",");
         while (scanner.hasNextLine()) {
             String data = scanner.nextLine();
-            String[] datosArreglo = data.split(",");
-            String contenido = datosArreglo[2].substring(1, datosArreglo[2].length() - 1);
+            String[] datosArreglo = data.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+            String contenido = datosArreglo[2].replaceAll("\"", "");
             Publicacion publicacion = new Publicacion(Integer.parseInt(datosArreglo[0]),
                     Integer.parseInt(datosArreglo[1]), contenido, datosArreglo[3]);
             datosPublicacion.put(Integer.valueOf(datosArreglo[0]), publicacion);
