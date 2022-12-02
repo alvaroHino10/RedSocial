@@ -36,6 +36,11 @@ public class ServicioUsuarios {
         return new ArrayList<>(datosUsuario.keySet());
     }
 
+    public void cambiarAUsuario(int id){
+        Usuario usuario = datosUsuario.get(id);
+        usuario.cambiarAUsuario();
+    }
+
     private void guardarDatosUsuario() {
         try {
             FileWriter fileWriter = new FileWriter("Usuarios.csv");
@@ -61,6 +66,9 @@ public class ServicioUsuarios {
             String[] datosArreglo = data.split(",");
             Usuario usuario = new Usuario(Integer.parseInt(datosArreglo[0]), datosArreglo[1]);
             datosUsuario.put(Integer.parseInt(datosArreglo[0]), usuario);
+            if (datosArreglo[2].equals(TipoUsuario.USUARIO.name())){
+                usuario.cambiarAUsuario();
+            }
         }
     }
 

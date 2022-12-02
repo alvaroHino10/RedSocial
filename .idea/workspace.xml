@@ -6,6 +6,14 @@
       <change beforePath="$PROJECT_DIR$/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Publicaciones.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/serviciousuarios/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/Interfaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Interfaz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/muro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/muro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/nuevaPublicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/nuevaPublicacion.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +25,7 @@
       <list>
         <option value="CSS File" />
         <option value="JavaFXApplication" />
+        <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -55,6 +64,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="frontend/controladores" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\UMSS\ARQUI SOFTWARE\redSocial\social\src\Imagenes" />
     </key>
@@ -63,7 +75,7 @@
       <recent name="D:\UMSS\ARQUI SOFTWARE\redSocial\social\src\frontend" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainWindows">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="social" />
@@ -128,9 +140,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/frontend/controladores/IngresarUsuarioController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -6,6 +6,7 @@ import backend.serviciopublicaciones.Publicacion;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciousuarios.ServicioUsuarios;
+import backend.serviciousuarios.Usuario;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -56,13 +57,14 @@ public class PublicacionController {
     private Publicacion publicacion;
 
 
-    public void actualizarDatos(int idUsuario, String nombreUsr, String contenido, int idPubliActual) {
+    public void actualizarDatos(int idUsuario, String contenido, int idPubliActual) {
         this.idUsuario = idUsuario;
         this.idPubliActual = idPubliActual;
+        Usuario usuario = servicioUsuarios.buscarUsuario(idUsuario);
         this.publicacion = servicioPublicaciones.buscarPublicacion(idPubliActual);
         int totalReacciones = getTotalReacciones();
         labelReaccionesCont.setText(String.valueOf(totalReacciones));
-        nombreUsuario.setText(nombreUsr);
+        nombreUsuario.setText(usuario.getNombre());
         horaPublicacion.setText(this.publicacion.getFecha());
         descripcionPubli.setText(this.publicacion.getContenido());
         labelComentarios.setText(0 + " Comentarios");

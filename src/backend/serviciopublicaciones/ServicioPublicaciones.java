@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Collections;
 
 public class ServicioPublicaciones {
 
@@ -39,7 +40,9 @@ public class ServicioPublicaciones {
     }
 
     public List<Integer> listarPublicaciones() {
-        return new ArrayList<>(datosPublicacion.keySet());
+        ArrayList<Integer> listaPublicaciones = new ArrayList<>(datosPublicacion.keySet());
+        Collections.reverse(listaPublicaciones);
+        return listaPublicaciones;
     }
 
     private String fecha() {

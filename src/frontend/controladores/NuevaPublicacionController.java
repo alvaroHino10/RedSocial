@@ -33,7 +33,6 @@ public class NuevaPublicacionController {
 
     private ServicioUsuarios servicioUsuarios;
     private ServicioPublicaciones servicioPublicaciones;
-    private String nombreUsuario;
     private MuroController muroController;
     private String contenidoPubli;
 
@@ -44,9 +43,6 @@ public class NuevaPublicacionController {
     public NuevaPublicacionController(){
         FXMLLoader muroLoader = new FXMLLoader(getClass().getResource("/frontend/muro.fxml"));
         muroController = muroLoader.getController();
-    }
-    public void obtenerUsuario(KeyEvent keyEvent) {
-        this.nombreUsuario = textUsuario.getText();
     }
 
     public void obtenerPublicacion(KeyEvent keyEvent) {
@@ -61,9 +57,8 @@ public class NuevaPublicacionController {
         publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
         Stage stage = (Stage) btnPublicar.getScene().getWindow();
         stage.close();
-        this.idUsrActual = servicioUsuarios.agregarUsuario(nombreUsuario);
         this.idPubliActual = servicioPublicaciones.agregarPublicacion(idUsrActual, contenidoPubli);
-        publicacionController.actualizarDatos(idUsrActual, nombreUsuario, contenidoPubli, idPubliActual);
+        publicacionController.actualizarDatos(idUsrActual, contenidoPubli, idPubliActual);
         muroController.agregarNuevaPublicacion(parent);
     }
 

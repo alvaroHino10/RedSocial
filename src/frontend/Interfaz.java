@@ -3,6 +3,7 @@ package frontend;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciousuarios.ServicioUsuarios;
+import frontend.controladores.IngresarUsuarioController;
 import frontend.controladores.MuroController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,11 +25,10 @@ public class Interfaz extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader muroLoader = new FXMLLoader(getClass().getResource("/frontend/muro.fxml"));
-        Parent parent = muroLoader.load();
-        MuroController muroController = muroLoader.getController();
-        muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
-        muroController.cargarPublicaciones();
+        FXMLLoader ingresarUsuarioLoader = new FXMLLoader(getClass().getResource("/frontend/ingresarUsuario.fxml"));
+        Parent parent = ingresarUsuarioLoader.load();
+        IngresarUsuarioController ingresarUsuarioController = ingresarUsuarioLoader.getController();
+        ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
         stage.setTitle("RED SOCIAL");
         stage.setScene(new Scene(parent));
         stage.show();

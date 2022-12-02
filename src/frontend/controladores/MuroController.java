@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -20,16 +21,16 @@ import java.util.List;
 public class MuroController {
 
     @FXML
-    private ScrollPane panelPublicaciones;
-
+    private Label labelUsuarioActual;
     @FXML
     private Button btnNuevaPubli;
-
     @FXML
     private VBox vBoxPublicaciones;
+
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
+    private int idUsrActual;
 
     public void agregarNuevaPublicacion(Parent parent) {
         vBoxPublicaciones.getChildren().add(parent);
@@ -57,18 +58,24 @@ public class MuroController {
                 Parent contPublicacion = publicacionLoader.load();
                 PublicacionController publicacionController = publicacionLoader.getController();
                 publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
-                publicacionController.actualizarDatos(publicacion.getIdUsuario(), usuario.getNombre(), publicacion.getContenido(), idPub);
+                publicacionController.actualizarDatos(publicacion.getIdUsuario(), publicacion.getContenido(), idPub);
                 agregarNuevaPublicacion(contPublicacion);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        Usuario usuario = servicioUsuarios.buscarUsuario(idUsrActual);
+        this.labelUsuarioActual.setText(usuario.getNombre());
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
+    }
+
+    public void actualizarUsuario(int idUsrActual){
+        this.idUsrActual = idUsrActual;
     }
 
     public void cambiarUsuario(ActionEvent actionEvent) {
