@@ -12,25 +12,34 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.List;
 
 public class MuroController {
 
     @FXML
+    private Label labelMsjUsr;
+    @FXML
     private Label labelUsuarioActual;
     @FXML
     private Button btnNuevaPubli;
     @FXML
+    private Button cambiarUsuario;
+    @FXML
     private VBox vBoxPublicaciones;
+    @FXML
+    private TextField textCambiarUsuario;
 
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
     private int idUsrActual;
+    private String nombreUsr;
 
     public void agregarNuevaPublicacion(Parent parent) {
         vBoxPublicaciones.getChildren().add(parent);
@@ -42,23 +51,45 @@ public class MuroController {
         Parent parent = nuevaPublicacionLoader.load();
         NuevaPublicacionController nuevaPublicacionController = nuevaPublicacionLoader.getController();
         nuevaPublicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
+        nuevaPublicacionController.recibirUsuario(idUsrActual);
         nuevaPublicacionController.agregarControllerMuro(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.show();
     }
 
+    private boolean tienePublicacion() {
+        List<Integer> idsPublicaciones = servicioPublicaciones.listarPublicaciones();
+        for (Integer idsPublicacion : idsPublicaciones) {
+            Publicacion publicacion = servicioPublicaciones.buscarPublicacion(idsPublicacion);
+            if (publicacion.getIdUsuario() == idUsrActual) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void actualizarUsrOCandidato() {
+        Usuario usuario = this.servicioUsuarios.buscarUsuario(idUsrActual);
+        if (!usuario.esUsuario()){
+            this.btnNuevaPubli.setDisable(tienePublicacion());
+            this.labelMsjUsr.setText("Eres un CANDIDATO");
+        }
+        else this.labelMsjUsr.setText("Eres un USUARIO");
+    }
+
     public void cargarPublicaciones() {
+        vBoxPublicaciones.getChildren().clear();
         List<Integer> listaIdPub = this.servicioPublicaciones.listarPublicaciones();
         try {
             for (Integer idPub : listaIdPub) {
                 Publicacion publicacion = this.servicioPublicaciones.buscarPublicacion(idPub);
-                Usuario usuario = this.servicioUsuarios.buscarUsuario(publicacion.getIdUsuario());
                 FXMLLoader publicacionLoader = new FXMLLoader(getClass().getResource("/frontend/publicacion.fxml"));
                 Parent contPublicacion = publicacionLoader.load();
                 PublicacionController publicacionController = publicacionLoader.getController();
                 publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
-                publicacionController.actualizarDatos(publicacion.getIdUsuario(), publicacion.getContenido(), idPub);
+                publicacionController.actualizarDatos(publicacion.getIdUsuario(), idPub);
+                publicacionController.agregarControllerMuro(this);
                 agregarNuevaPublicacion(contPublicacion);
             }
         } catch (IOException e) {
@@ -74,11 +105,29 @@ public class MuroController {
         this.servicioReacciones = servicioReacciones;
     }
 
-    public void actualizarUsuario(int idUsrActual){
+    public void recibirUsuario(int idUsrActual) {
         this.idUsrActual = idUsrActual;
+        actualizarUsrOCandidato();
     }
 
-    public void cambiarUsuario(ActionEvent actionEvent) {
+    @FXML
+    public void obtenerCambioUsuario(KeyEvent event) {
+        this.nombreUsr = textCambiarUsuario.getText();
+        if (this.nombreUsr != null) {
+            this.cambiarUsuario.setDisable(false);
+        }
+    }
 
+    @FXML
+    public void cambiarUsuario(ActionEvent actionEvent) {
+        this.idUsrActual = servicioUsuarios.agregarUsuario(this.nombreUsr);
+        this.labelUsuarioActual.setText(this.nombreUsr);
+        this.textCambiarUsuario.setText("");
+        this.cambiarUsuario.setDisable(true);
+        actualizarUsrOCandidato();
+        cargarPublicaciones();
+    }
+    public int getIdUsrActual(){
+        return idUsrActual;
     }
 }

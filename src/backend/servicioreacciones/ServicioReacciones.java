@@ -7,36 +7,44 @@ import java.io.IOException;
 import java.util.*;
 
 public class ServicioReacciones {
-    private final SortedMap<Integer, List<String>> datosReacciones;
-    private final Map<Emocion, Integer> reaccionesXPubli;
+    private final SortedMap<Integer, List<List<String>>> datosReacciones;
     private int contIds;
 
     public ServicioReacciones() {
         this.datosReacciones = new TreeMap<>();
-        this.reaccionesXPubli = new HashMap<>();
         leerReacciones();
         this.contIds = datosReacciones.size();
-        cargarDatos();
     }
 
     public void agregarReaccion(int idPublicacion, int idUsuario, Emocion reaccion) {
+        List<List<String>> datosPubli = datosReacciones.get(idPublicacion);
         List<String> reaccionesListDatos = new ArrayList<>();
         reaccionesListDatos.add(String.valueOf(idPublicacion));
-        reaccionesListDatos.add(String.valueOf(idUsuario));
         reaccionesListDatos.add(reaccion.name());
-        datosReacciones.put(idPublicacion, reaccionesListDatos);
+        reaccionesListDatos.add(String.valueOf(idUsuario));
+        if (datosPubli != null){
+            datosPubli.add(reaccionesListDatos);
+        }
+        else {
+            datosPubli = new ArrayList<>();
+            datosPubli.add(reaccionesListDatos);
+        }
+        datosReacciones.put(idPublicacion, datosPubli);
         guardarReaccion();
     }
 
     public Map<Emocion, Integer> listarResumenReacciones(int idPublicacion) {
-        // devuelve la cantidad de reacciones por reaccion
-        for(List<String> datos : datosReacciones.values()){
-            int idPublicacionDato = Integer.parseInt(datos.get(0));
-            if (idPublicacionDato == idPublicacion){
-                for (Emocion emocion : Emocion.values()) {
-                    if (emocion.name().equals(datos.get(1))){
-                        reaccionesXPubli.put(emocion, reaccionesXPubli.get(emocion) + 1);
-                        break;
+        Map<Emocion, Integer> reaccionesXPubli = new HashMap<>();
+        cargarDatos(reaccionesXPubli);
+        for (List<List<String>> datos : datosReacciones.values()) {
+            for (List<String> reaccion : datos) {
+                int idPublicacionDato = Integer.parseInt(reaccion.get(0));
+                if (idPublicacionDato == idPublicacion) {
+                    for (Emocion emocion : Emocion.values()) {
+                        if (emocion.name().equals(reaccion.get(1))) {
+                            reaccionesXPubli.put(emocion, reaccionesXPubli.get(emocion) + 1);
+                            break;
+                        }
                     }
                 }
             }
@@ -44,20 +52,36 @@ public class ServicioReacciones {
         return reaccionesXPubli;
     }
 
-    private void cargarDatos(){
-        for (Emocion reaccion: Emocion.values()) {
-            reaccionesXPubli.put(reaccion, 0);
+    public boolean tieneMasDeUnaReaccion(int idUsuario) {
+        int contReacUsr = 0;
+        for (int i = 0; i < datosReacciones.values().size(); i++) {
+            List<String> datosCsv = datosReacciones.get(i).get(i + 1);
+            if (datosCsv != null && Integer.parseInt(datosCsv.get(2)) == idUsuario) {
+                contReacUsr++;
+            }
         }
+        return contReacUsr > 0;
     }
 
-    private String toCsv(List<String> reaccionesListDatos) {
-        return reaccionesListDatos.get(0) + "," + reaccionesListDatos.get(1) + "," + reaccionesListDatos.get(2) + "\n";
+    private String toCsv(List<List<String>> reaccionesListDatos) {
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < reaccionesListDatos.size(); i++) {
+            List<String> reaccion = reaccionesListDatos.get(i);
+            res.append(reaccion.get(0)).append(",").append(reaccion.get(1)).append(",").append(reaccion.get(2)).append("\n");
+        }
+        return String.valueOf(res);
+    }
+
+    private void cargarDatos(Map<Emocion, Integer> listado) {
+        for (Emocion reaccion : Emocion.values()) {
+            listado.put(reaccion, 0);
+        }
     }
 
     private void guardarReaccion() {
         try {
             FileWriter fileWriter = new FileWriter("Reacciones.csv");
-            for (Map.Entry<Integer, List<String>> entry : datosReacciones.entrySet()) {
+            for (Map.Entry<Integer, List<List<String>>> entry : datosReacciones.entrySet()) {
                 String formatCsv = toCsv(entry.getValue());
                 fileWriter.write(formatCsv);
             }
@@ -79,7 +103,11 @@ public class ServicioReacciones {
         while (scanner.hasNextLine()) {
             String data = scanner.nextLine();
             String[] datosArreglo = data.split(",");
-            datosReacciones.put(Integer.valueOf(datosArreglo[0]), new ArrayList<>(List.of(datosArreglo)));
+            List<List<String>> result = datosReacciones.get(Integer.valueOf(datosArreglo[0]));
+            if (result == null)
+                result = new ArrayList<>();
+            result.add(List.of(datosArreglo));
+            datosReacciones.put(Integer.valueOf(datosArreglo[0]), result);
             contIds++;
         }
     }

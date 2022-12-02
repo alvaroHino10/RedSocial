@@ -1,28 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.MuroController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.MuroController">
    <children>
       <VBox alignment="CENTER" prefHeight="489.0" prefWidth="234.0">
          <children>
-            <Label fx:id="labelUsuarioActual" prefHeight="91.0" prefWidth="149.0" />
+            <Label fx:id="labelUsuarioActual" alignment="CENTER" contentDisplay="CENTER" prefHeight="91.0" prefWidth="149.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Historic" size="18.0" />
+               </font></Label>
+            <Label fx:id="labelMsjUsr" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="340.0" prefHeight="91.0" prefWidth="204.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Historic" size="18.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
-      <ScrollPane fx:id="panelPublicaciones" prefHeight="537.0" prefWidth="551.0">
+      <ScrollPane fx:id="panelPublicaciones" prefHeight="671.0" prefWidth="670.0">
          <content>
-            <VBox fx:id="vBoxPublicaciones" prefHeight="425.0" prefWidth="361.0" />
+            <VBox fx:id="vBoxPublicaciones" prefHeight="587.0" prefWidth="573.0" />
          </content>
       </ScrollPane>
-      <VBox alignment="BOTTOM_LEFT" prefHeight="400.0" prefWidth="228.0">
+      <VBox alignment="BOTTOM_LEFT" prefHeight="671.0" prefWidth="201.0">
          <children>
-            <Button fx:id="cambiarUsuario" mnemonicParsing="false" onAction="#cambiarUsuario" prefHeight="40.0" prefWidth="111.0" text="Cambiar Usuario">
+            <Label prefHeight="27.0" prefWidth="159.0" text="Nombre de usuario">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Segoe UI Historic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textCambiarUsuario" alignment="CENTER" onKeyTyped="#obtenerCambioUsuario" prefHeight="25.0" prefWidth="20.0" promptText="Ingresar nombre usuario">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="cambiarUsuario" disable="true" mnemonicParsing="false" onAction="#cambiarUsuario" prefHeight="40.0" prefWidth="150.0" text="Cambiar Usuario">
                <font>
                   <Font name="Segoe UI Historic" size="15.0" />
                </font>
@@ -30,7 +49,7 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnNuevaPubli" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#publicar" prefHeight="37.0" prefWidth="111.0" text="Nueva Publicacion">
+            <Button fx:id="btnNuevaPubli" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#publicar" prefHeight="37.0" prefWidth="150.0" text="Nueva Publicacion">
                <font>
                   <Font name="Segoe UI Historic" size="15.0" />
                </font>

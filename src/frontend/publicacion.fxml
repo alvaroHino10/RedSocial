@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="vBoxPrincipal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="451.0" spacing="10.0" styleClass="post-background" stylesheets="@recursos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.PublicacionController">
+<VBox fx:id="vBoxPrincipal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="603.0" spacing="10.0" styleClass="post-background" stylesheets="@recursos/estilos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.PublicacionController">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" spacing="10.0">
          <children>
@@ -66,34 +66,104 @@
                <children>
                   <HBox alignment="CENTER" spacing="5.0">
                      <children>
-                        <HBox fx:id="hBoxReaccionesview" alignment="CENTER">
+                        <HBox fx:id="hBoxReaccionesview" alignment="CENTER" prefHeight="40.0" prefWidth="417.0">
                            <children>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="LikeIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <image>
                                     <Image url="@imagenes/like.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                              <Label fx:id="LikeCont" alignment="CENTER" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="LoveIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <image>
-                                    <Image url="@imagenes/haha.png" />
+                                    <Image url="@imagenes/love.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="35.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                              <Label fx:id="LoveCont" alignment="CENTER" layoutX="67.0" layoutY="17.0" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="SurpriseIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <image>
                                     <Image url="@imagenes/wow.png" />
                                  </image>
                               </ImageView>
+                              <Label fx:id="SurpriseCont" alignment="CENTER" layoutX="142.0" layoutY="17.0" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="ExplainIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@imagenes/thinking.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="ExplainCont" alignment="CENTER" layoutX="196.0" layoutY="17.0" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="SadIcon" fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@imagenes/sad.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="SadCont" alignment="CENTER" layoutX="238.0" layoutY="17.0" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="MadIcon" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@imagenes/mad.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="MadCont" alignment="CENTER" layoutX="274.0" layoutY="17.0" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IndifferentIcon" fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@imagenes/dont-care.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="IndifferentCont" alignment="CENTER" layoutX="313.0" layoutY="17.0" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="CareIcon" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@imagenes/care.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="CareCont" alignment="CENTER" layoutX="345.0" layoutY="17.0" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="HappyIcon" fitHeight="40.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@imagenes/haha.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="HappyCont" alignment="CENTER" prefHeight="27.0" prefWidth="90.0">
+                                 <font>
+                                    <Font name="Segoe UI Historic" size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
-                        <Label fx:id="labelReaccionesCont" alignment="CENTER" prefHeight="27.0" prefWidth="90.0" text="0">
-                           <font>
-                              <Font name="Segoe UI Historic" size="18.0" />
-                           </font>
-                        </Label>
                      </children>
                   </HBox>
                   <Pane HBox.hgrow="ALWAYS" />
-                  <Label fx:id="labelComentarios" text="comentarios">
+                  <Label fx:id="labelComentarios" prefHeight="27.0" prefWidth="137.0" text="comentarios">
                      <font>
                         <Font name="Segoe UI Historic" size="18.0" />
                      </font>
@@ -106,75 +176,87 @@
       </StackPane>
       <HBox fx:id="hBoxReacciones" maxWidth="-Infinity">
          <children>
-            <ImageView fx:id="Like" fitHeight="40.0" fitWidth="40.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/like.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Love" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/love.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Happy" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/haha.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Care" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/care.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Indifferent" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/dont-care.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Mad" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/mad.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Sad" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/sad.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Explain" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/thinking.png" />
-               </image>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fx:id="Surprise" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="12.0" onMousePressed="#reaccionEspecial" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@imagenes/wow.png" />
-               </image>
-            </ImageView>
+            <Button fx:id="Like" layoutX="129.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/like.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Love" layoutX="544.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/love.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Happy" layoutX="228.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/haha.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Care" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/care.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Indifferent" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/dont-care.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Mad" layoutX="500.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/mad.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Sad" layoutX="484.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/sad.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Explain" layoutX="468.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/thinking.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Surprise" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/wow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
          <padding>
             <Insets bottom="2.0" left="20.0" right="20.0" top="2.0" />

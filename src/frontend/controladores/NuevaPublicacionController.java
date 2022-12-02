@@ -2,11 +2,9 @@ package frontend.controladores;
 
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
-import backend.serviciousuarios.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,10 +24,6 @@ public class NuevaPublicacionController {
     private TextField textUsuario;
     @FXML
     private Button btnPublicar;
-    @FXML
-    private Label labelUsuario;
-    @FXML
-    private Label labelPublicacion;
 
     private ServicioUsuarios servicioUsuarios;
     private ServicioPublicaciones servicioPublicaciones;
@@ -58,8 +52,9 @@ public class NuevaPublicacionController {
         Stage stage = (Stage) btnPublicar.getScene().getWindow();
         stage.close();
         this.idPubliActual = servicioPublicaciones.agregarPublicacion(idUsrActual, contenidoPubli);
-        publicacionController.actualizarDatos(idUsrActual, contenidoPubli, idPubliActual);
-        muroController.agregarNuevaPublicacion(parent);
+        publicacionController.actualizarDatos(idUsrActual, idPubliActual);
+        muroController.cargarPublicaciones();
+        muroController.actualizarUsrOCandidato();
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones) {
@@ -70,5 +65,9 @@ public class NuevaPublicacionController {
 
     public void agregarControllerMuro(MuroController muroController){
         this.muroController = muroController;
+    }
+
+    public void recibirUsuario(int idUsrActual){
+        this.idUsrActual = idUsrActual;
     }
 }

@@ -27,4 +27,11 @@ public class Usuario {
     public String toString() {
         return idUsuario + "," + nombre + "," + tipoUsuario + "\n";
     }
+
+    public boolean equals(Object usuario){
+        if (usuario instanceof  Usuario){
+            return this.nombre.equals(((Usuario) usuario).nombre);
+        }
+        return false;
+    }
 }

@@ -4,6 +4,7 @@ import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciousuarios.ServicioUsuarios;
 import javafx.event.ActionEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 public class IngresarUsuarioController {
@@ -33,10 +33,6 @@ public class IngresarUsuarioController {
         this.servicioReacciones = servicioReacciones;
     }
 
-    public void obtenerUsuario(KeyEvent keyEvent){
-        this.nombreUsuario = this.textUsuario.getText();
-    }
-
     @FXML
     public void ingresarUsuario(ActionEvent event) throws IOException {
         this.idUsrActual = servicioUsuarios.agregarUsuario(nombreUsuario);
@@ -48,8 +44,12 @@ public class IngresarUsuarioController {
         Stage stage = (Stage) botonIngresar.getScene().getWindow();
         stage.close();
         stage.setScene(new Scene(parent));
-        muroController.actualizarUsuario(idUsrActual);
+        muroController.recibirUsuario(idUsrActual);
         muroController.cargarPublicaciones();
         stage.show();
+    }
+
+    public void obtenerUsuario(KeyEvent keyEvent) {
+        this.nombreUsuario = this.textUsuario.getText();
     }
 }

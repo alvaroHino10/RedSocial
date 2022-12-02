@@ -10,20 +10,37 @@ public class ServicioUsuarios {
     private final SortedMap<Integer, Usuario> datosUsuario;
     private int contIds;
 
+    private Usuario usuarioAct;
+
 
     public ServicioUsuarios() {
         this.datosUsuario = new TreeMap<>();
         leerDatosUsuario();
         this.contIds = datosUsuario.size();
+        this.usuarioAct = null;
     }
 
     public int agregarUsuario(String nombre) {
         Usuario usuario = new Usuario(contIds + 1, nombre);
-        int idActual = contIds + 1;
-        datosUsuario.put(idActual, usuario);
-        guardarDatosUsuario();
-        contIds = datosUsuario.size();
-        return idActual;
+        int existeUsuario = existeUsuario(usuario);
+        if (existeUsuario == -1){
+            int idActual = contIds + 1;
+            datosUsuario.put(idActual, usuario);
+            guardarDatosUsuario();
+            contIds = datosUsuario.size();
+            return idActual;
+        }
+        return existeUsuario;
+    }
+
+    private int existeUsuario(Usuario usuario) {
+        for (int i = 0; i < datosUsuario.keySet().size(); i++) {
+            Usuario usuarioEncontrado = datosUsuario.get(i + 1);
+            if (usuarioEncontrado.equals(usuario)){
+                return i + 1;
+            }
+        }
+        return -1;
     }
 
     public void eliminarUsuario(String nombre){}
@@ -36,8 +53,8 @@ public class ServicioUsuarios {
         return new ArrayList<>(datosUsuario.keySet());
     }
 
-    public void cambiarAUsuario(int id){
-        Usuario usuario = datosUsuario.get(id);
+    public void cambiarAUsuario(int idUsr){
+        Usuario usuario = datosUsuario.get(idUsr);
         usuario.cambiarAUsuario();
     }
 
