@@ -15,13 +15,9 @@ public class ServicioPublicaciones {
 
     private final SortedMap<Integer, Publicacion> datosPublicacion;
     private int contIds;
-    private final List<Integer> idsUsuarios;
-    private final ServicioUsuarios servicioUsuarios;
 
     public ServicioPublicaciones() {
         this.datosPublicacion = new TreeMap<>();
-        this.servicioUsuarios = new ServicioUsuarios();
-        this.idsUsuarios = this.servicioUsuarios.listarUsuarios();
         leerDatosPublicacion();
         this.contIds = datosPublicacion.size();
     }
@@ -55,7 +51,7 @@ public class ServicioPublicaciones {
         try {
             FileWriter fileWriter = new FileWriter("Publicaciones.csv");
             for (Map.Entry<Integer, Publicacion> entry : datosPublicacion.entrySet()) {
-                String formatCsv = (entry.getValue().toString() + "\n");
+                String formatCsv = (entry.getValue().toCsv() + "\n");
                 fileWriter.write(formatCsv);
             }
             fileWriter.close();

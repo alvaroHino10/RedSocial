@@ -7,9 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import backend.serviciousuarios.ServicioUsuarios;
@@ -21,8 +19,6 @@ public class NuevaPublicacionController {
     @FXML
     private TextArea textPublicacion;
     @FXML
-    private TextField textUsuario;
-    @FXML
     private Button btnPublicar;
 
     private ServicioUsuarios servicioUsuarios;
@@ -30,14 +26,8 @@ public class NuevaPublicacionController {
     private MuroController muroController;
     private String contenidoPubli;
 
-    private int idPubliActual;
     private int idUsrActual;
     private ServicioReacciones servicioReacciones;
-
-    public NuevaPublicacionController(){
-        FXMLLoader muroLoader = new FXMLLoader(getClass().getResource("/frontend/muro.fxml"));
-        muroController = muroLoader.getController();
-    }
 
     public void obtenerPublicacion(KeyEvent keyEvent) {
         this.contenidoPubli = textPublicacion.getText();
@@ -51,7 +41,7 @@ public class NuevaPublicacionController {
         publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
         Stage stage = (Stage) btnPublicar.getScene().getWindow();
         stage.close();
-        this.idPubliActual = servicioPublicaciones.agregarPublicacion(idUsrActual, contenidoPubli);
+        int idPubliActual = servicioPublicaciones.agregarPublicacion(idUsrActual, contenidoPubli);
         publicacionController.actualizarDatos(idUsrActual, idPubliActual);
         muroController.cargarPublicaciones();
         muroController.actualizarUsrOCandidato();

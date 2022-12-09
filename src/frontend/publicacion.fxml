@@ -176,7 +176,7 @@
       </StackPane>
       <HBox fx:id="hBoxReacciones" maxWidth="-Infinity">
          <children>
-            <Button fx:id="Like" layoutX="129.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Like" layoutX="129.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -185,7 +185,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Love" layoutX="544.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Love" layoutX="544.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -194,7 +194,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Happy" layoutX="228.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Happy" layoutX="228.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -203,7 +203,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Care" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Care" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -212,7 +212,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Indifferent" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Indifferent" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -221,7 +221,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Mad" layoutX="500.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Mad" layoutX="500.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -230,7 +230,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Sad" layoutX="484.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Sad" layoutX="484.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -239,7 +239,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Explain" layoutX="468.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Explain" layoutX="468.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -248,7 +248,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Surprise" mnemonicParsing="false" onAction="#reaccionEspecial" style="-fx-background-color: transparent;">
+            <Button fx:id="Surprise" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>

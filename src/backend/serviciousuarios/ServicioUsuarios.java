@@ -10,14 +10,10 @@ public class ServicioUsuarios {
     private final SortedMap<Integer, Usuario> datosUsuario;
     private int contIds;
 
-    private Usuario usuarioAct;
-
-
     public ServicioUsuarios() {
         this.datosUsuario = new TreeMap<>();
         leerDatosUsuario();
         this.contIds = datosUsuario.size();
-        this.usuarioAct = null;
     }
 
     public int agregarUsuario(String nombre) {
@@ -56,13 +52,15 @@ public class ServicioUsuarios {
     public void cambiarAUsuario(int idUsr){
         Usuario usuario = datosUsuario.get(idUsr);
         usuario.cambiarAUsuario();
+        System.out.println(usuario.getNombre() + " ahora es un USUARIO");
+        guardarDatosUsuario();
     }
 
     private void guardarDatosUsuario() {
         try {
             FileWriter fileWriter = new FileWriter("Usuarios.csv");
-            for (Map.Entry entry : datosUsuario.entrySet()) {
-                fileWriter.write(entry.getValue().toString());
+            for (Map.Entry<Integer, Usuario> entry : datosUsuario.entrySet()) {
+                fileWriter.write(entry.getValue().toCsv() + "\n");
             }
             fileWriter.close();
         } catch (IOException e) {

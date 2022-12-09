@@ -4,7 +4,6 @@ public class Publicacion {
     public int idUsuario;
     public String fecha;
     public String contenido;
-    private final int numComentarios;
     private final int idPublicacion;
 
 
@@ -13,7 +12,6 @@ public class Publicacion {
         this.idUsuario = idUsuario;
         this.contenido = contenido;
         this.fecha = fecha;
-        this.numComentarios = 0;
     }
 
     public int getIdUsuario() {
@@ -37,7 +35,7 @@ public class Publicacion {
         return false;
     }
 
-    public String toString() {
+    public String toCsv() {
         return idPublicacion + "," + idUsuario + "," + "\"" + contenido + "\"" + "," + fecha;
     }
 }

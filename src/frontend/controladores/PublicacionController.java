@@ -45,24 +45,6 @@ public class PublicacionController {
     @FXML
     private Label SurpriseCont;
     @FXML
-    private Button Like;
-    @FXML
-    private Button Love;
-    @FXML
-    private Button Care;
-    @FXML
-    private Button Indifferent;
-    @FXML
-    private Button Mad;
-    @FXML
-    private Button Sad;
-    @FXML
-    private Button Surprise;
-    @FXML
-    private Button Explain;
-    @FXML
-    private Button Happy;
-    @FXML
     private ImageView LikeIcon;
     @FXML
     private ImageView SadIcon;
@@ -100,31 +82,14 @@ public class PublicacionController {
         labelComentarios.setText(0 + " Comentarios");
     }
 
-    public void deshabilitarReacciones(int idUsr) {
-        if (puedeReaccionar(idUsr)) {
-            Like.setDisable(true);
-            Love.setDisable(true);
-            Happy.setDisable(true);
-            Sad.setDisable(true);
-            Mad.setDisable(true);
-            Surprise.setDisable(true);
-            Explain.setDisable(true);
-            Care.setDisable(true);
-            Indifferent.setDisable(true);
-        }
-    }
 
-    private boolean puedeReaccionar(int idUsr) {
-        return !servicioReacciones.tieneMasDeUnaReaccion(idUsr);
-    }
-
-
-    public void reaccionEspecial(ActionEvent actionEvent) {
+    public void reaccion(ActionEvent actionEvent) {
         String button = ((Button) actionEvent.getSource()).getId();
         int idUsrReaccion = muroController.getIdUsrActual();
         for (Emocion emocion : Emocion.values()) {
             if (emocion.name().equals(button)) {
                 servicioReacciones.agregarReaccion(idPubliActual, idUsrReaccion, emocion);
+                break;
             }
         }
         contarReaccionesPublicacion(idPubliActual);
@@ -136,9 +101,8 @@ public class PublicacionController {
         Map<Emocion, Integer> resumenReacciones = servicioReacciones.listarResumenReacciones(idPubli);
         int total = contarTotalReacciones(resumenReacciones);
         int idUsrDueno = publicacion.getIdUsuario();
-        Usuario usuario = servicioUsuarios.buscarUsuario(idUsrDueno);
-        if (!(total < 3)) {
-            usuario.cambiarAUsuario();
+        if (total >= 3) {
+            servicioUsuarios.cambiarAUsuario(idUsrDueno);
         }
     }
 

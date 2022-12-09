@@ -24,8 +24,8 @@ public class Usuario {
         this.tipoUsuario = TipoUsuario.USUARIO;
     }
 
-    public String toString() {
-        return idUsuario + "," + nombre + "," + tipoUsuario + "\n";
+    public String toCsv() {
+        return idUsuario + "," + nombre + "," + tipoUsuario;
     }
 
     public boolean equals(Object usuario){
