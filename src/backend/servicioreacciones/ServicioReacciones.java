@@ -16,14 +16,14 @@ public class ServicioReacciones {
 
     public void agregarReaccion(int idPublicacion, int idUsuario, Emocion reaccion) {
         List<List<String>> datosPubli = datosReacciones.get(idPublicacion);
-        List<String> reaccionesListDatos = new ArrayList<>();
+        List<String> reaccionesListDatos = new ArrayList<>(3);
         reaccionesListDatos.add(String.valueOf(idPublicacion));
         reaccionesListDatos.add(reaccion.name());
         reaccionesListDatos.add(String.valueOf(idUsuario));
         if (datosPubli == null) {
             datosPubli = new ArrayList<>();
         }
-            datosPubli.add(reaccionesListDatos);
+        datosPubli.add(reaccionesListDatos);
 
         datosReacciones.put(idPublicacion, datosPubli);
         guardarReaccion();
@@ -71,7 +71,7 @@ public class ServicioReacciones {
             }
             fileWriter.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
@@ -79,18 +79,18 @@ public class ServicioReacciones {
         Scanner scanner;
         try {
             scanner = new Scanner(new File("Reacciones.csv"));
+            scanner.useDelimiter(",");
+            while (scanner.hasNextLine()) {
+                String data = scanner.nextLine();
+                String[] datosArreglo = data.split(",");
+                List<List<String>> result = datosReacciones.get(Integer.valueOf(datosArreglo[0]));
+                if (result == null)
+                    result = new ArrayList<>();
+                result.add(List.of(datosArreglo));
+                datosReacciones.put(Integer.valueOf(datosArreglo[0]), result);
+            }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        scanner.useDelimiter(",");
-        while (scanner.hasNextLine()) {
-            String data = scanner.nextLine();
-            String[] datosArreglo = data.split(",");
-            List<List<String>> result = datosReacciones.get(Integer.valueOf(datosArreglo[0]));
-            if (result == null)
-                result = new ArrayList<>();
-            result.add(List.of(datosArreglo));
-            datosReacciones.put(Integer.valueOf(datosArreglo[0]), result);
+            e.printStackTrace();
         }
     }
 }

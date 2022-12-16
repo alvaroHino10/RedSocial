@@ -3,18 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reacciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Reacciones.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/serviciopublicaciones/Publicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciopublicaciones/Publicacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciopublicaciones/ServicioPublicaciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/servicioreacciones/ServicioReacciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/servicioreacciones/ServicioReacciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/serviciousuarios/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/IU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/IU.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/Interfaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Interfaz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +34,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2GlPyPQExSY37FUdby3zB71uDKp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -122,7 +118,9 @@
       <workItem from="1669049708179" duration="1512000" />
       <workItem from="1670250383555" duration="652000" />
       <workItem from="1670257167299" duration="265000" />
-      <workItem from="1670591842966" duration="6476000" />
+      <workItem from="1670591842966" duration="7086000" />
+      <workItem from="1671067263594" duration="5613000" />
+      <workItem from="1671199853257" duration="9738000" />
     </task>
     <servers />
   </component>

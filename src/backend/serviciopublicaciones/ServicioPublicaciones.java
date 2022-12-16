@@ -51,12 +51,12 @@ public class ServicioPublicaciones {
         try {
             FileWriter fileWriter = new FileWriter("Publicaciones.csv");
             for (Map.Entry<Integer, Publicacion> entry : datosPublicacion.entrySet()) {
-                String formatCsv = (entry.getValue().toCsv() + "\n");
+                String formatCsv = (entry.getValue().toString() + "\n");
                 fileWriter.write(formatCsv);
             }
             fileWriter.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
@@ -64,17 +64,17 @@ public class ServicioPublicaciones {
         Scanner scanner;
         try {
             scanner = new Scanner(new File("Publicaciones.csv"));
+            scanner.useDelimiter(",");
+            while (scanner.hasNextLine()) {
+                String data = scanner.nextLine();
+                String[] datosArreglo = data.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+                String contenido = datosArreglo[2].replaceAll("\"", "");
+                Publicacion publicacion = new Publicacion(Integer.parseInt(datosArreglo[0]),
+                        Integer.parseInt(datosArreglo[1]), contenido, datosArreglo[3]);
+                datosPublicacion.put(Integer.valueOf(datosArreglo[0]), publicacion);
+            }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        scanner.useDelimiter(",");
-        while (scanner.hasNextLine()) {
-            String data = scanner.nextLine();
-            String[] datosArreglo = data.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-            String contenido = datosArreglo[2].replaceAll("\"", "");
-            Publicacion publicacion = new Publicacion(Integer.parseInt(datosArreglo[0]),
-                    Integer.parseInt(datosArreglo[1]), contenido, datosArreglo[3]);
-            datosPublicacion.put(Integer.valueOf(datosArreglo[0]), publicacion);
+            e.printStackTrace();
         }
     }
 }

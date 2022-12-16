@@ -60,11 +60,11 @@ public class ServicioUsuarios {
         try {
             FileWriter fileWriter = new FileWriter("Usuarios.csv");
             for (Map.Entry<Integer, Usuario> entry : datosUsuario.entrySet()) {
-                fileWriter.write(entry.getValue().toCsv() + "\n");
+                fileWriter.write(entry.getValue().toString() + "\n");
             }
             fileWriter.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
@@ -72,24 +72,19 @@ public class ServicioUsuarios {
         Scanner scanner;
         try {
             scanner = new Scanner(new File("Usuarios.csv"));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        scanner.useDelimiter(",");
-        while (scanner.hasNextLine()) {
-            String data = scanner.nextLine();
-            String[] datosArreglo = data.split(",");
-            Usuario usuario = new Usuario(Integer.parseInt(datosArreglo[0]), datosArreglo[1]);
-            datosUsuario.put(Integer.parseInt(datosArreglo[0]), usuario);
-            if (datosArreglo[2].equals(TipoUsuario.USUARIO.name())){
-                usuario.cambiarAUsuario();
+            scanner.useDelimiter(",");
+            while (scanner.hasNextLine()) {
+                String data = scanner.nextLine();
+                String[] datosArreglo = data.split(",");
+                Usuario usuario = new Usuario(Integer.parseInt(datosArreglo[0]), datosArreglo[1]);
+                datosUsuario.put(Integer.parseInt(datosArreglo[0]), usuario);
+                if (datosArreglo[2].equals(TipoUsuario.USUARIO.name())){
+                    usuario.cambiarAUsuario();
+                }
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
+
     }
-
-
-
-
-
-
 }

@@ -35,7 +35,7 @@ public class Publicacion {
         return false;
     }
 
-    public String toCsv() {
+    public String toString() {
         return idPublicacion + "," + idUsuario + "," + "\"" + contenido + "\"" + "," + fecha;
     }
 }
