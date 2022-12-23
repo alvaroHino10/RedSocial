@@ -1,4 +1,4 @@
-package backend.serviciointeres;
+package backend.serviciointeresusuario;
 
 
 import java.io.File;
@@ -29,9 +29,12 @@ public class ServicioInteresUsuario {
     public List<Integer> listarInteresUsuario(int idUsr) {
         List<List<String>> interesesUsr = interesesUsuario.get(idUsr);
         List<Integer> idsIntereses = new ArrayList<>();
-        for (List<String> interesUsr : interesesUsr) {
-            int idInteres = Integer.parseInt(interesUsr.get(0));
-            idsIntereses.add(idInteres);
+        if (interesesUsr != null) {
+            for (List<String> interesUsr : interesesUsr) {
+                int idInteres = Integer.parseInt(interesUsr.get(0));
+                idsIntereses.add(idInteres);
+            }
+            return idsIntereses;
         }
         return idsIntereses;
     }
@@ -53,7 +56,7 @@ public class ServicioInteresUsuario {
     private String toCsv(List<List<String>> dataCsv) {
         StringBuilder res = new StringBuilder();
         for (List<String> value : dataCsv) {
-            res.append(value.get(0)).append(",").append(value.get(1)).append(",").append("\n");
+            res.append(value.get(0)).append(",").append(value.get(1)).append("\n");
         }
         return String.valueOf(res);
     }

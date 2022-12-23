@@ -1,6 +1,10 @@
 package frontend.controladores;
 
 
+import backend.serviciointeres.Interes;
+import backend.serviciointeres.ServicioInteres;
+import backend.serviciointerespublicacion.ServicioInteresPublicacion;
+import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.servicioreacciones.Emocion;
 import backend.serviciopublicaciones.Publicacion;
 import backend.serviciopublicaciones.ServicioPublicaciones;
@@ -12,8 +16,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 public class PublicacionController {
@@ -62,11 +66,16 @@ public class PublicacionController {
     private ImageView CareIcon;
     @FXML
     private ImageView SurpriseIcon;
+    @FXML
+    private Label interesesPublicacion;
 
 
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
+    private ServicioInteres servicioInteres;
+    private ServicioInteresPublicacion servicioInteresPublicacion;
+    private ServicioInteresUsuario servicioInteresUsuario;
     private int idPubliActual;
     private MuroController muroController;
 
@@ -78,8 +87,23 @@ public class PublicacionController {
         nombreUsuario.setText(usuario.getNombre());
         horaPublicacion.setText(publicacion.getFecha());
         descripcionPubli.setText(publicacion.getContenido());
+        String intereses = obtenerInteresesPublicacion(this.idPubliActual);
+        interesesPublicacion.setText(intereses);
         actualizarContadorReacciones(this.idPubliActual);
         labelComentarios.setText(0 + " Comentarios");
+    }
+
+    private String obtenerInteresesPublicacion(int idPub) {
+        List<Integer> interesesPublicacion = servicioInteresPublicacion.listarInteresPublicacion(idPub);
+        StringBuilder intereses = new StringBuilder();
+        for (int i = 0; i < interesesPublicacion.size(); i++) {
+            Interes interes = servicioInteres.buscarInteres(interesesPublicacion.get(i));
+            if (i == interesesPublicacion.size() - 1)
+                intereses.append(interes.getNombreInteres());
+            else
+                intereses.append(interes.getNombreInteres()).append(",");
+        }
+        return String.valueOf(intereses);
     }
 
 
@@ -161,10 +185,15 @@ public class PublicacionController {
         }
     }
 
-    public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones) {
+    public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
+                                 ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
+                                 ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
+        this.servicioInteres = servicioInteres;
+        this.servicioInteresPublicacion = servicioInteresPublicacion;
+        this.servicioInteresUsuario = servicioInteresUsuario;
     }
 
     public void agregarControllerMuro(MuroController muroController) {

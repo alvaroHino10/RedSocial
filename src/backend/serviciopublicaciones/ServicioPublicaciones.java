@@ -1,8 +1,6 @@
 package backend.serviciopublicaciones;
 
 
-import backend.serviciousuarios.ServicioUsuarios;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

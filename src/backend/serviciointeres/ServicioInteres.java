@@ -1,7 +1,5 @@
 package backend.serviciointeres;
 
-import backend.serviciousuarios.Usuario;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -27,6 +25,7 @@ public class ServicioInteres{
             intereses.put(idActual, interes);
             guardarDatos();
             contsIds = intereses.size();
+            return contsIds;
         }
         return existeInteres;
 
@@ -73,5 +72,9 @@ public class ServicioInteres{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Interes buscarInteres(int idInteres) {
+        return intereses.get(idInteres);
     }
 }

@@ -1,8 +1,12 @@
 package frontend.controladores;
 
+import backend.serviciointeres.ServicioInteres;
+import backend.serviciointerespublicacion.ServicioInteresPublicacion;
+import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciousuarios.ServicioUsuarios;
+import backend.serviciousuarios.Usuario;
 import javafx.event.ActionEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.fxml.FXML;
@@ -14,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class IngresarUsuarioController {
 
@@ -24,29 +29,52 @@ public class IngresarUsuarioController {
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
     private ServicioReacciones servicioReacciones;
+    private ServicioInteres servicioInteres;
+    private ServicioInteresPublicacion servicioInteresPublicacion;
+    private ServicioInteresUsuario servicioInteresUsuario;
     private String nombreUsuario;
     private int idUsrActual;
 
-    public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones) {
+    public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
+                                 ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
+                                 ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
+        this.servicioInteres = servicioInteres;
+        this.servicioInteresPublicacion = servicioInteresPublicacion;
+        this.servicioInteresUsuario = servicioInteresUsuario;
     }
 
     @FXML
     public void ingresarUsuario(ActionEvent event) throws IOException {
         this.idUsrActual = servicioUsuarios.agregarUsuario(nombreUsuario);
+        Usuario usuario = servicioUsuarios.buscarUsuario(idUsrActual);
+        List<Integer> listaIntereses = servicioInteresUsuario.listarInteresUsuario(idUsrActual);
         FXMLLoader muroLoader = new FXMLLoader();
-        muroLoader.setLocation(getClass().getResource("/frontend/muro.fxml"));
-        Parent parent = muroLoader.load();
-        MuroController muroController = muroLoader.getController();
-        muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones);
+        Parent parent;
+        if (usuario.esUsuario() && listaIntereses.isEmpty()) {
+            muroLoader.setLocation(getClass().getResource("/frontend/intereses.fxml"));
+            parent = muroLoader.load();
+            InteresesController interesesController = muroLoader.getController();
+            interesesController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
+                    servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+            interesesController.cargarIntereses();
+            interesesController.recibirUsuario(idUsrActual);
+        } else {
+            muroLoader.setLocation(getClass().getResource("/frontend/muro.fxml"));
+            parent = muroLoader.load();
+            MuroController muroController = muroLoader.getController();
+            muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
+                    servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+            muroController.recibirUsuario(idUsrActual);
+            muroController.cargarPublicaciones();
+        }
+
         Stage stage = (Stage) botonIngresar.getScene().getWindow();
         stage.close();
-        stage.setScene(new Scene(parent));
-        muroController.recibirUsuario(idUsrActual);
-        muroController.cargarPublicaciones();
         stage.show();
+        stage.setScene(new Scene(parent));
     }
 
     public void obtenerUsuario(KeyEvent keyEvent) {

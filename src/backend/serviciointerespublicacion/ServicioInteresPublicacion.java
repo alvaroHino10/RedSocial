@@ -1,4 +1,4 @@
-package backend.serviciointeres;
+package backend.serviciointerespublicacion;
 
 
 import java.io.File;
@@ -15,7 +15,7 @@ public class ServicioInteresPublicacion {
         leerDatos();
     }
 
-    public void agregarInteresUsuario(int idInteres, int idPublicacion) {
+    public void agregarInteresPublicacion(int idInteres, int idPublicacion) {
         List<List<String>> interesesUsr = interesesPublicacion.get(idPublicacion);
         if (interesesUsr == null) interesesUsr = new ArrayList<>();
         List<String> interesUsr = new ArrayList<>(2);
@@ -26,12 +26,15 @@ public class ServicioInteresPublicacion {
         guardarDatos();
     }
 
-    public List<Integer> listarInteresUsuario(int idUsr) {
-        List<List<String>> interesesUsr = interesesPublicacion.get(idUsr);
+    public List<Integer> listarInteresPublicacion(int idPublicacion) {
+        List<List<String>> interesesPub = interesesPublicacion.get(idPublicacion);
         List<Integer> idsIntereses = new ArrayList<>();
-        for (List<String> interesUsr : interesesUsr) {
-            int idInteres = Integer.parseInt(interesUsr.get(0));
-            idsIntereses.add(idInteres);
+        if (interesesPub != null) {
+            for (List<String> interesPub : interesesPub) {
+                int idInteres = Integer.parseInt(interesPub.get(0));
+                idsIntereses.add(idInteres);
+            }
+            return idsIntereses;
         }
         return idsIntereses;
     }
@@ -53,7 +56,7 @@ public class ServicioInteresPublicacion {
     private String toCsv(List<List<String>> dataCsv) {
         StringBuilder res = new StringBuilder();
         for (List<String> value : dataCsv) {
-            res.append(value.get(0)).append(",").append(value.get(1)).append(",").append("\n");
+            res.append(value.get(0)).append(",").append(value.get(1)).append("\n");
         }
         return String.valueOf(res);
     }
