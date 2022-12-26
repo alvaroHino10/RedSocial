@@ -2,16 +2,16 @@ package frontend.controladores;
 
 import backend.serviciointeres.Interes;
 import backend.serviciointeres.ServicioInteres;
-import backend.serviciointerespublicacion.ServicioInteresPublicacion;
-import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.ServicioUsuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -43,8 +43,8 @@ public class InteresesController {
     private ServicioUsuarios servicioUsuarios;
     private ServicioReacciones servicioReacciones;
     private ServicioInteres servicioInteres;
-    private ServicioInteresPublicacion servicioInteresPublicacion;
-    private ServicioInteresUsuario servicioInteresUsuario;
+    private ServicioRelacionador servicioInteresPublicacion;
+    private ServicioRelacionador servicioInteresUsuario;
     private String primerInteres;
     private String segundoInteres;
     private String tercerInteres;
@@ -52,30 +52,45 @@ public class InteresesController {
 
     @FXML
     public void guardarIntereses(ActionEvent event) throws IOException {
-        if (!primerInteres.equals("")){
-            int idInteres = servicioInteres.agregarInteres(primerInteres);
-            servicioInteresUsuario.agregarInteresUsuario(idInteres, idUsrActual);
+        if (primerInteres == null) {
+            interesesNulos();
+        } else {
+            if (!primerInteres.equals("")) {
+                primerInteres = primerInteres.toLowerCase();
+                int idInteres = servicioInteres.agregarInteres(primerInteres);
+                servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
+            }
+            if (!segundoInteres.equals("")) {
+                segundoInteres = segundoInteres.toLowerCase();
+                int idInteres = servicioInteres.agregarInteres(segundoInteres);
+                servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
+            }
+            if (!tercerInteres.equals("")) {
+                tercerInteres = tercerInteres.toLowerCase();
+                int idInteres = servicioInteres.agregarInteres(tercerInteres);
+                servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
+            }
+            FXMLLoader muroLoader = new FXMLLoader();
+            muroLoader.setLocation(getClass().getResource("/frontend/muro.fxml"));
+            Parent parent = muroLoader.load();
+            ;
+            MuroController muroController = muroLoader.getController();
+            muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioInteres,
+                    servicioInteresPublicacion, servicioInteresUsuario);
+            muroController.recibirUsuario(idUsrActual);
+            muroController.cargarPublicaciones();
+            Stage stage = (Stage) guardarIntereses.getScene().getWindow();
+            stage.close();
+            stage.show();
+            stage.setScene(new Scene(parent));
         }
-        if (!segundoInteres.equals("")){
-            int idInteres = servicioInteres.agregarInteres(segundoInteres);
-            servicioInteresUsuario.agregarInteresUsuario(idInteres, idUsrActual);
-        }
-        if (!tercerInteres.equals("")){
-            int idInteres = servicioInteres.agregarInteres(tercerInteres);
-            servicioInteresUsuario.agregarInteresUsuario(idInteres, idUsrActual);
-        }
-        FXMLLoader muroLoader = new FXMLLoader();
-        muroLoader.setLocation(getClass().getResource("/frontend/muro.fxml"));
-        Parent parent = muroLoader.load();;
-        MuroController muroController = muroLoader.getController();
-        muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioInteres,
-                servicioInteresPublicacion, servicioInteresUsuario);
-        muroController.recibirUsuario(idUsrActual);
-        muroController.cargarPublicaciones();
-        Stage stage = (Stage) guardarIntereses.getScene().getWindow();
-        stage.close();
-        stage.show();
-        stage.setScene(new Scene(parent));
+    }
+
+    private void interesesNulos() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("Minimo debes ingresar un interes para continuar navegando en la red social");
+        alert.setTitle("Nuevo Interes");
+        alert.showAndWait();
     }
 
     @FXML
@@ -83,17 +98,17 @@ public class InteresesController {
         this.primerInteres = this.primerInteresCombo.getSelectionModel().getSelectedItem();
         this.segundoInteres = this.segundoInteresCombo.getSelectionModel().getSelectedItem();
         this.tercerInteres = this.tercerInteresCombo.getSelectionModel().getSelectedItem();
-        if (primerInteres != null){
+        if (primerInteres != null) {
             primerInteresText.setText(this.primerInteres);
             primerInteresText.setDisable(true);
             primerInteresCombo.setPromptText("Primer Interes");
         }
-        if (segundoInteres != null){
+        if (segundoInteres != null) {
             segundoInteresText.setText(this.segundoInteres);
             segundoInteresText.setDisable(true);
             segundoInteresCombo.setPromptText("Segundo Interes");
         }
-        if (tercerInteres != null){
+        if (tercerInteres != null) {
             tercerInteresText.setText(this.tercerInteres);
             tercerInteresText.setDisable(true);
             tercerInteresCombo.setPromptText("Tercer Interes");
@@ -106,7 +121,7 @@ public class InteresesController {
         this.tercerInteres = this.tercerInteresText.getText();
     }
 
-    public void cargarIntereses(){
+    public void cargarIntereses() {
         cargarIntereses(primerInteresCombo);
         cargarIntereses(segundoInteresCombo);
         cargarIntereses(tercerInteresCombo);
@@ -122,13 +137,14 @@ public class InteresesController {
         interesesCombo.getItems().addAll(interesesNombre);
 
     }
+
     public void recibirUsuario(int idUsrActual) {
         this.idUsrActual = idUsrActual;
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
-                                 ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;

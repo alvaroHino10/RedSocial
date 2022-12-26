@@ -1,10 +1,9 @@
 package frontend;
 
 import backend.serviciointeres.ServicioInteres;
-import backend.serviciointerespublicacion.ServicioInteresPublicacion;
-import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.ServicioUsuarios;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -16,12 +15,12 @@ public class IU{
     private ServicioPublicaciones servicioPublicaciones;
 
     private ServicioInteres servicioInteres;
-    private ServicioInteresPublicacion servicioInteresPublicacion;
-    private ServicioInteresUsuario servicioInteresUsuario;
+    private ServicioRelacionador servicioInteresPublicacion;
+    private ServicioRelacionador servicioInteresUsuario;
 
     public IU(ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones,
               ServicioUsuarios servicioUsuarios, ServicioInteres servicioInteres,
-              ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
+              ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioReacciones = servicioReacciones;
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
@@ -31,7 +30,8 @@ public class IU{
     }
 
     public void iniciar(){
-        final Interfaz interfaz = new Interfaz(servicioPublicaciones, servicioReacciones, servicioUsuarios, servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+        final Interfaz interfaz = new Interfaz(servicioPublicaciones, servicioReacciones, servicioUsuarios,
+                servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
         try {
             interfaz.init();
         } catch (Exception e) {

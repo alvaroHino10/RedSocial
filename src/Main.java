@@ -1,8 +1,7 @@
 import backend.serviciointeres.ServicioInteres;
-import backend.serviciointerespublicacion.ServicioInteresPublicacion;
-import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.ServicioUsuarios;
 import frontend.IU;
 import java.io.IOException;
@@ -13,9 +12,10 @@ public class Main{
         ServicioUsuarios servicioUsuarios = new ServicioUsuarios();
         ServicioReacciones servicioReacciones = new ServicioReacciones();
         ServicioInteres servicioInteres = new ServicioInteres();
-        ServicioInteresPublicacion servicioInteresPublicacion = new ServicioInteresPublicacion();
-        ServicioInteresUsuario servicioInteresUsuario = new ServicioInteresUsuario();
-        IU IU = new IU(servicioPublicaciones, servicioReacciones, servicioUsuarios, servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+        ServicioRelacionador servicioInteresPublicacion = new ServicioRelacionador("InteresPublicacion");
+        ServicioRelacionador servicioInteresUsuario = new ServicioRelacionador("InteresUsuario");
+        IU IU = new IU(servicioPublicaciones, servicioReacciones, servicioUsuarios, servicioInteres,
+                servicioInteresPublicacion, servicioInteresUsuario);
         IU.iniciar();
     }
 }

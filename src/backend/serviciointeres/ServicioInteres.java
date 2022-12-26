@@ -28,7 +28,10 @@ public class ServicioInteres{
             return contsIds;
         }
         return existeInteres;
+    }
 
+    public List<Integer> listarIntereses(){
+        return new ArrayList<>(intereses.keySet());
     }
 
     private int existeInteres(Interes interes) {
@@ -39,10 +42,6 @@ public class ServicioInteres{
             }
         }
         return -1;
-    }
-
-    public List<Integer> listarIntereses(){
-        return new ArrayList<>(intereses.keySet());
     }
 
     private void leerDatosIntereses() {

@@ -1,10 +1,9 @@
 package frontend.controladores;
 
 import backend.serviciointeres.ServicioInteres;
-import backend.serviciointerespublicacion.ServicioInteresPublicacion;
-import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.ServicioUsuarios;
 import backend.serviciousuarios.Usuario;
 import javafx.event.ActionEvent;
@@ -16,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -30,14 +28,14 @@ public class IngresarUsuarioController {
     private ServicioUsuarios servicioUsuarios;
     private ServicioReacciones servicioReacciones;
     private ServicioInteres servicioInteres;
-    private ServicioInteresPublicacion servicioInteresPublicacion;
-    private ServicioInteresUsuario servicioInteresUsuario;
+    private ServicioRelacionador servicioInteresPublicacion;
+    private ServicioRelacionador servicioInteresUsuario;
     private String nombreUsuario;
     private int idUsrActual;
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
-                                 ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
@@ -50,7 +48,7 @@ public class IngresarUsuarioController {
     public void ingresarUsuario(ActionEvent event) throws IOException {
         this.idUsrActual = servicioUsuarios.agregarUsuario(nombreUsuario);
         Usuario usuario = servicioUsuarios.buscarUsuario(idUsrActual);
-        List<Integer> listaIntereses = servicioInteresUsuario.listarInteresUsuario(idUsrActual);
+        List<Integer> listaIntereses = servicioInteresUsuario.listarInteresesRelacionados(idUsrActual);
         FXMLLoader muroLoader = new FXMLLoader();
         Parent parent;
         if (usuario.esUsuario() && listaIntereses.isEmpty()) {

@@ -1,10 +1,9 @@
 package frontend;
 
 import backend.serviciointeres.ServicioInteres;
-import backend.serviciointerespublicacion.ServicioInteresPublicacion;
-import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.ServicioUsuarios;
 import frontend.controladores.IngresarUsuarioController;
 import javafx.application.Application;
@@ -19,12 +18,12 @@ public class Interfaz extends Application {
     private ServicioUsuarios servicioUsuarios;
     private ServicioReacciones servicioReacciones;
     private ServicioInteres servicioInteres;
-    private ServicioInteresPublicacion servicioInteresPublicacion;
-    private ServicioInteresUsuario servicioInteresUsuario;
+    private ServicioRelacionador servicioInteresPublicacion;
+    private ServicioRelacionador servicioInteresUsuario;
 
     public Interfaz(ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones,
                     ServicioUsuarios servicioUsuarios, ServicioInteres servicioInteres,
-                    ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
+                    ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioUsuarios = servicioUsuarios;
         this.servicioReacciones = servicioReacciones;

@@ -1,11 +1,10 @@
 package frontend.controladores;
 
 import backend.serviciointeres.ServicioInteres;
-import backend.serviciointerespublicacion.ServicioInteresPublicacion;
-import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.serviciopublicaciones.Publicacion;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.ServicioUsuarios;
 import backend.serviciousuarios.Usuario;
 import javafx.event.ActionEvent;
@@ -15,8 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -32,18 +29,16 @@ public class MuroController {
     @FXML
     private Button btnNuevaPubli;
     @FXML
-    private Button cambiarUsuario;
+    private Button cerrarSesion;
     @FXML
     private VBox vBoxPublicaciones;
-    @FXML
-    private TextField textCambiarUsuario;
 
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
     private ServicioInteres servicioInteres;
-    private ServicioInteresPublicacion servicioInteresPublicacion;
-    private ServicioInteresUsuario servicioInteresUsuario;
+    private ServicioRelacionador servicioInteresPublicacion;
+    private ServicioRelacionador servicioInteresUsuario;
     private int idUsrActual;
     private String nombreUsr;
 
@@ -110,7 +105,7 @@ public class MuroController {
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
-                                 ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
@@ -125,21 +120,18 @@ public class MuroController {
     }
 
     @FXML
-    public void obtenerCambioUsuario(KeyEvent event) {
-        this.nombreUsr = textCambiarUsuario.getText();
-        if (this.nombreUsr != null) {
-            this.cambiarUsuario.setDisable(false);
-        }
-    }
-
-    @FXML
-    public void cambiarUsuario(ActionEvent actionEvent) {
-        this.idUsrActual = servicioUsuarios.agregarUsuario(this.nombreUsr);
-        this.labelUsuarioActual.setText(this.nombreUsr);
-        this.textCambiarUsuario.setText("");
-        this.cambiarUsuario.setDisable(true);
+    public void cerrarSesion(ActionEvent actionEvent) throws IOException {
         actualizarUsrOCandidato();
-        cargarPublicaciones();
+        FXMLLoader ingresarUsuario = new FXMLLoader();
+        ingresarUsuario.setLocation(getClass().getResource("/frontend/ingresarUsuario.fxml"));
+        Parent parent = ingresarUsuario.load();
+        IngresarUsuarioController ingresarUsuarioController = ingresarUsuario.getController();
+        ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
+                servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+        Stage stage = (Stage) cerrarSesion.getScene().getWindow();
+        stage.setScene(new Scene(parent));
+        stage.close();
+        stage.show();
     }
     public int getIdUsrActual(){
         return idUsrActual;

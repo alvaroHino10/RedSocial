@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.MuroController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.MuroController">
    <children>
       <VBox alignment="CENTER" prefHeight="489.0" prefWidth="234.0">
          <children>
@@ -28,20 +27,7 @@
       </ScrollPane>
       <VBox alignment="BOTTOM_LEFT" prefHeight="671.0" prefWidth="201.0">
          <children>
-            <Label prefHeight="27.0" prefWidth="159.0" text="Nombre de usuario">
-               <VBox.margin>
-                  <Insets bottom="15.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Segoe UI Historic" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="textCambiarUsuario" alignment="CENTER" onKeyTyped="#obtenerCambioUsuario" prefHeight="25.0" prefWidth="20.0" promptText="Ingresar nombre usuario">
-               <VBox.margin>
-                  <Insets bottom="15.0" />
-               </VBox.margin>
-            </TextField>
-            <Button fx:id="cambiarUsuario" disable="true" mnemonicParsing="false" onAction="#cambiarUsuario" prefHeight="40.0" prefWidth="150.0" text="Cambiar Usuario">
+            <Button fx:id="btnNuevaPubli" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#publicar" prefHeight="37.0" prefWidth="150.0" text="Nueva Publicacion">
                <font>
                   <Font name="Segoe UI Historic" size="15.0" />
                </font>
@@ -49,10 +35,13 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btnNuevaPubli" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#publicar" prefHeight="37.0" prefWidth="150.0" text="Nueva Publicacion">
+            <Button fx:id="cerrarSesion" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="40.0" prefWidth="150.0" text="Cerrar Sesion">
                <font>
                   <Font name="Segoe UI Historic" size="15.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
             </Button>
          </children>
          <opaqueInsets>

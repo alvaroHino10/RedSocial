@@ -51,8 +51,8 @@ public class ServicioUsuarios {
 
     public void cambiarAUsuario(int idUsr){
         Usuario usuario = datosUsuario.get(idUsr);
-        usuario.cambiarAUsuario();
-        System.out.println(usuario.getNombre() + " ahora es un USUARIO");
+        String nombre = usuario.cambiarAUsuario();
+        System.out.println(nombre + " ahora es un USUARIO");
         guardarDatosUsuario();
     }
 

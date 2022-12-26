@@ -3,12 +3,11 @@ package frontend.controladores;
 
 import backend.serviciointeres.Interes;
 import backend.serviciointeres.ServicioInteres;
-import backend.serviciointerespublicacion.ServicioInteresPublicacion;
-import backend.serviciointeresusuario.ServicioInteresUsuario;
 import backend.servicioreacciones.Emocion;
 import backend.serviciopublicaciones.Publicacion;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
+import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.ServicioUsuarios;
 import backend.serviciousuarios.Usuario;
 import javafx.event.ActionEvent;
@@ -74,8 +73,8 @@ public class PublicacionController {
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
     private ServicioInteres servicioInteres;
-    private ServicioInteresPublicacion servicioInteresPublicacion;
-    private ServicioInteresUsuario servicioInteresUsuario;
+    private ServicioRelacionador servicioInteresPublicacion;
+    private ServicioRelacionador servicioInteresUsuario;
     private int idPubliActual;
     private MuroController muroController;
 
@@ -94,7 +93,7 @@ public class PublicacionController {
     }
 
     private String obtenerInteresesPublicacion(int idPub) {
-        List<Integer> interesesPublicacion = servicioInteresPublicacion.listarInteresPublicacion(idPub);
+        List<Integer> interesesPublicacion = servicioInteresPublicacion.listarInteresesRelacionados(idPub);
         StringBuilder intereses = new StringBuilder();
         for (int i = 0; i < interesesPublicacion.size(); i++) {
             Interes interes = servicioInteres.buscarInteres(interesesPublicacion.get(i));
@@ -187,7 +186,7 @@ public class PublicacionController {
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
-                                 ServicioInteresPublicacion servicioInteresPublicacion, ServicioInteresUsuario servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;

@@ -20,8 +20,9 @@ public class Usuario {
         return TipoUsuario.USUARIO == this.tipoUsuario;
     }
 
-    public void cambiarAUsuario(){
+    public String cambiarAUsuario(){
         this.tipoUsuario = TipoUsuario.USUARIO;
+        return this.nombre;
     }
 
     public String toString() {
