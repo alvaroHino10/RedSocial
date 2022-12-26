@@ -3,18 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Interes.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InteresPublicacion.csv" beforeDir="false" afterPath="$PROJECT_DIR$/InteresPublicacion.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InteresUsuario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/InteresUsuario.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Publicaciones.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reacciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Reacciones.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/serviciointeres/ServicioInteres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciointeres/ServicioInteres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/serviciointerespublicacion/ServicioInteresPublicacion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/serviciointeresusuario/ServicioInteresUsuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/serviciousuarios/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/serviciointeres/Interes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciointereses/Interes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/serviciointeres/ServicioInteres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciointereses/ServicioIntereses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/IU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/IU.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/Interfaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Interfaz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/IngresarUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/IngresarUsuarioController.java" afterDir="false" />
@@ -22,9 +14,6 @@
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/muro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/muro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/nuevaPublicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/nuevaPublicacion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +132,9 @@
       <workItem from="1671797645320" duration="22861000" />
       <workItem from="1671925277785" duration="6036000" />
       <workItem from="1671931698470" duration="1925000" />
-      <workItem from="1672057941526" duration="2667000" />
+      <workItem from="1672057941526" duration="2881000" />
+      <workItem from="1672061111356" duration="299000" />
+      <workItem from="1672093072125" duration="415000" />
     </task>
     <servers />
   </component>
@@ -160,32 +151,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/controladores/IngresarUsuarioController.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/controladores/InteresesController.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/controladores/InteresesController.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frontend/controladores/InteresesController.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,6 +1,6 @@
 package frontend;
 
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.ServicioIntereses;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciorelacionador.ServicioRelacionador;
@@ -14,24 +14,24 @@ public class IU{
     private ServicioUsuarios servicioUsuarios;
     private ServicioPublicaciones servicioPublicaciones;
 
-    private ServicioInteres servicioInteres;
+    private ServicioIntereses servicioIntereses;
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
 
     public IU(ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones,
-              ServicioUsuarios servicioUsuarios, ServicioInteres servicioInteres,
+              ServicioUsuarios servicioUsuarios, ServicioIntereses servicioIntereses,
               ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioReacciones = servicioReacciones;
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
-        this.servicioInteres = servicioInteres;
+        this.servicioIntereses = servicioIntereses;
         this.servicioInteresPublicacion = servicioInteresPublicacion;
         this.servicioInteresUsuario = servicioInteresUsuario;
     }
 
     public void iniciar(){
         final Interfaz interfaz = new Interfaz(servicioPublicaciones, servicioReacciones, servicioUsuarios,
-                servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
         try {
             interfaz.init();
         } catch (Exception e) {

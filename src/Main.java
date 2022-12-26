@@ -1,4 +1,4 @@
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.ServicioIntereses;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciorelacionador.ServicioRelacionador;
@@ -11,10 +11,10 @@ public class Main{
         ServicioPublicaciones servicioPublicaciones = new  ServicioPublicaciones();
         ServicioUsuarios servicioUsuarios = new ServicioUsuarios();
         ServicioReacciones servicioReacciones = new ServicioReacciones();
-        ServicioInteres servicioInteres = new ServicioInteres();
+        ServicioIntereses servicioIntereses = new ServicioIntereses();
         ServicioRelacionador servicioInteresPublicacion = new ServicioRelacionador("InteresPublicacion");
         ServicioRelacionador servicioInteresUsuario = new ServicioRelacionador("InteresUsuario");
-        IU IU = new IU(servicioPublicaciones, servicioReacciones, servicioUsuarios, servicioInteres,
+        IU IU = new IU(servicioPublicaciones, servicioReacciones, servicioUsuarios, servicioIntereses,
                 servicioInteresPublicacion, servicioInteresUsuario);
         IU.iniciar();
     }

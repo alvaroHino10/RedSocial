@@ -1,8 +1,8 @@
 package frontend.controladores;
 
 
-import backend.serviciointeres.Interes;
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.Interes;
+import backend.serviciointereses.ServicioIntereses;
 import backend.servicioreacciones.Emocion;
 import backend.serviciopublicaciones.Publicacion;
 import backend.serviciopublicaciones.ServicioPublicaciones;
@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -72,7 +71,7 @@ public class PublicacionController {
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
-    private ServicioInteres servicioInteres;
+    private ServicioIntereses servicioIntereses;
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
     private int idPubliActual;
@@ -96,7 +95,7 @@ public class PublicacionController {
         List<Integer> interesesPublicacion = servicioInteresPublicacion.listarInteresesRelacionados(idPub);
         StringBuilder intereses = new StringBuilder();
         for (int i = 0; i < interesesPublicacion.size(); i++) {
-            Interes interes = servicioInteres.buscarInteres(interesesPublicacion.get(i));
+            Interes interes = servicioIntereses.buscarInteres(interesesPublicacion.get(i));
             if (i == interesesPublicacion.size() - 1)
                 intereses.append(interes.getNombreInteres());
             else
@@ -121,21 +120,11 @@ public class PublicacionController {
 
     public void contarReaccionesPublicacion(int idPubli) {
         Publicacion publicacion = servicioPublicaciones.buscarPublicacion(idPubli);
-        Map<Emocion, Integer> resumenReacciones = servicioReacciones.listarResumenReacciones(idPubli);
-        int total = contarTotalReacciones(resumenReacciones);
         int idUsrDueno = publicacion.getIdUsuario();
-        if (total >= 3) {
+        boolean tieneTres = servicioReacciones.tieneMasDeTresReacciones(idPubli);
+        if (tieneTres) {
             servicioUsuarios.cambiarAUsuario(idUsrDueno);
         }
-    }
-
-    private int contarTotalReacciones(Map<Emocion, Integer> resumenReacciones) {
-        int contTotal = 0;
-        Collection<Integer> reacciones = resumenReacciones.values();
-        for (Integer reaccion : reacciones) {
-            contTotal += reaccion;
-        }
-        return contTotal;
     }
 
     public void actualizarContadorReacciones(int idPublicacion) {
@@ -185,12 +174,12 @@ public class PublicacionController {
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
-                                 ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
+                                 ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
                                  ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
-        this.servicioInteres = servicioInteres;
+        this.servicioIntereses = servicioIntereses;
         this.servicioInteresPublicacion = servicioInteresPublicacion;
         this.servicioInteresUsuario = servicioInteresUsuario;
     }

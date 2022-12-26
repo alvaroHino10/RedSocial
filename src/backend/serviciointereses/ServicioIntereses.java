@@ -1,4 +1,4 @@
-package backend.serviciointeres;
+package backend.serviciointereses;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,12 +6,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class ServicioInteres{
+public class ServicioIntereses {
 
     private Map<Integer, Interes> intereses;
     private int contsIds;
 
-    public ServicioInteres() {
+    public ServicioIntereses() {
         this.intereses = new HashMap<>();
         leerDatosIntereses();
         this.contsIds = intereses.size();

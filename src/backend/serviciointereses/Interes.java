@@ -1,4 +1,4 @@
-package backend.serviciointeres;
+package backend.serviciointereses;
 
 public class Interes {
     private final int idInteres;

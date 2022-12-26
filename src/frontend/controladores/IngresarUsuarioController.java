@@ -1,6 +1,6 @@
 package frontend.controladores;
 
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.ServicioIntereses;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciorelacionador.ServicioRelacionador;
@@ -27,19 +27,19 @@ public class IngresarUsuarioController {
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
     private ServicioReacciones servicioReacciones;
-    private ServicioInteres servicioInteres;
+    private ServicioIntereses servicioIntereses;
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
     private String nombreUsuario;
     private int idUsrActual;
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
-                                 ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
+                                 ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
                                  ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
-        this.servicioInteres = servicioInteres;
+        this.servicioIntereses = servicioIntereses;
         this.servicioInteresPublicacion = servicioInteresPublicacion;
         this.servicioInteresUsuario = servicioInteresUsuario;
     }
@@ -56,7 +56,7 @@ public class IngresarUsuarioController {
             parent = muroLoader.load();
             InteresesController interesesController = muroLoader.getController();
             interesesController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                    servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+                    servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
             interesesController.cargarIntereses();
             interesesController.recibirUsuario(idUsrActual);
         } else {
@@ -64,7 +64,7 @@ public class IngresarUsuarioController {
             parent = muroLoader.load();
             MuroController muroController = muroLoader.getController();
             muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                    servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+                    servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
             muroController.recibirUsuario(idUsrActual);
             muroController.cargarPublicaciones();
         }

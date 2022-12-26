@@ -48,6 +48,15 @@ public class ServicioReacciones {
         return reaccionesXPubli;
     }
 
+    public boolean tieneMasDeTresReacciones(int idPublicacion) {
+        Map<Emocion, Integer> resumenReacciones = listarResumenReacciones(idPublicacion);
+        int contadorReacciones = 0;
+        for (Map.Entry<Emocion, Integer> reaccion: resumenReacciones.entrySet()){
+            contadorReacciones += reaccion.getValue();
+        }
+        return contadorReacciones >= 3;
+    }
+
     private String toCsv(List<List<String>> reaccionesListDatos) {
         StringBuilder res = new StringBuilder();
         for (List<String> reaccion : reaccionesListDatos) {

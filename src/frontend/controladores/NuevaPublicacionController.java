@@ -1,7 +1,7 @@
 package frontend.controladores;
 
-import backend.serviciointeres.Interes;
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.Interes;
+import backend.serviciointereses.ServicioIntereses;
 import backend.serviciorelacionador.ServicioRelacionador;
 import backend.serviciousuarios.Usuario;
 import backend.serviciousuarios.ServicioUsuarios;
@@ -38,7 +38,7 @@ public class NuevaPublicacionController {
 
     private ServicioUsuarios servicioUsuarios;
     private ServicioPublicaciones servicioPublicaciones;
-    private ServicioInteres servicioInteres;
+    private ServicioIntereses servicioIntereses;
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
     private MuroController muroController;
@@ -60,7 +60,7 @@ public class NuevaPublicacionController {
         Parent parent = publicacionLoader.load();
         PublicacionController publicacionController = publicacionLoader.getController();
         publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
         Stage stage = (Stage) btnPublicar.getScene().getWindow();
         stage.close();
         this.idPubliActual = servicioPublicaciones.agregarPublicacion(idUsrActual, contenidoPubli);
@@ -80,7 +80,7 @@ public class NuevaPublicacionController {
             this.nuevoInteresText.setDisable(true);
             this.agregarNuevoInteres.setDisable(true);
             this.nuevoInteresText.setPromptText("Solo puedes agregar un interes nuevo");
-            int idInteres = this.servicioInteres.agregarInteres(this.nuevoInteres);
+            int idInteres = this.servicioIntereses.agregarInteres(this.nuevoInteres);
             actualizarInteresesLabel(labelInteresesAgregados.getText(), this.nuevoInteres);
             if (interesesPorRegistrar == null) interesesPorRegistrar = new ArrayList<>();
             interesesPorRegistrar.add(idInteres);
@@ -100,10 +100,10 @@ public class NuevaPublicacionController {
     }
 
     public void cargarIntereses() {
-        List<Integer> intereses = servicioInteres.listarIntereses();
+        List<Integer> intereses = servicioIntereses.listarIntereses();
         List<String> interesesNombre = new ArrayList<>();
         for (Integer idInteres : intereses) {
-            Interes interes = servicioInteres.buscarInteres(idInteres);
+            Interes interes = servicioIntereses.buscarInteres(idInteres);
             interesesNombre.add(interes.getNombreInteres());
         }
         interesesPubliCombo.getItems().addAll(interesesNombre);
@@ -111,12 +111,12 @@ public class NuevaPublicacionController {
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
-                                 ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
+                                 ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
                                  ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
-        this.servicioInteres = servicioInteres;
+        this.servicioIntereses = servicioIntereses;
         this.servicioInteresPublicacion = servicioInteresPublicacion;
         this.servicioInteresUsuario = servicioInteresUsuario;
     }
@@ -167,9 +167,9 @@ public class NuevaPublicacionController {
     }
 
     private int buscarInteres(String interesAgregado) {
-        List<Integer> idsInteres = servicioInteres.listarIntereses();
+        List<Integer> idsInteres = servicioIntereses.listarIntereses();
         for (Integer idInteres : idsInteres) {
-            Interes interes = servicioInteres.buscarInteres(idInteres);
+            Interes interes = servicioIntereses.buscarInteres(idInteres);
             if (interes.getNombreInteres().equals(interesAgregado)) {
                 return idInteres;
             }

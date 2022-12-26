@@ -1,6 +1,6 @@
 package frontend.controladores;
 
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.ServicioIntereses;
 import backend.serviciopublicaciones.Publicacion;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
@@ -36,7 +36,7 @@ public class MuroController {
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
-    private ServicioInteres servicioInteres;
+    private ServicioIntereses servicioIntereses;
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
     private int idUsrActual;
@@ -52,7 +52,7 @@ public class MuroController {
         Parent parent = nuevaPublicacionLoader.load();
         NuevaPublicacionController nuevaPublicacionController = nuevaPublicacionLoader.getController();
         nuevaPublicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
         nuevaPublicacionController.recibirUsuario(idUsrActual);
         nuevaPublicacionController.agregarControllerMuro(this);
         nuevaPublicacionController.cargarIntereses();
@@ -91,7 +91,7 @@ public class MuroController {
                 Parent contPublicacion = publicacionLoader.load();
                 PublicacionController publicacionController = publicacionLoader.getController();
                 publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                        servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+                        servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
                 publicacionController.actualizarDatos(publicacion.getIdUsuario(), idPub);
                 publicacionController.agregarControllerMuro(this);
                 agregarNuevaPublicacion(contPublicacion);
@@ -104,12 +104,12 @@ public class MuroController {
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
-                                 ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
+                                 ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
                                  ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
-        this.servicioInteres = servicioInteres;
+        this.servicioIntereses = servicioIntereses;
         this.servicioInteresPublicacion = servicioInteresPublicacion;
         this.servicioInteresUsuario = servicioInteresUsuario;
     }
@@ -127,7 +127,7 @@ public class MuroController {
         Parent parent = ingresarUsuario.load();
         IngresarUsuarioController ingresarUsuarioController = ingresarUsuario.getController();
         ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
         Stage stage = (Stage) cerrarSesion.getScene().getWindow();
         stage.setScene(new Scene(parent));
         stage.close();

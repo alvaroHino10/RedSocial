@@ -1,7 +1,7 @@
 package frontend.controladores;
 
-import backend.serviciointeres.Interes;
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.Interes;
+import backend.serviciointereses.ServicioIntereses;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciorelacionador.ServicioRelacionador;
@@ -42,7 +42,7 @@ public class InteresesController {
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
     private ServicioReacciones servicioReacciones;
-    private ServicioInteres servicioInteres;
+    private ServicioIntereses servicioIntereses;
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
     private String primerInteres;
@@ -57,25 +57,29 @@ public class InteresesController {
         } else {
             if (!primerInteres.equals("")) {
                 primerInteres = primerInteres.toLowerCase();
-                int idInteres = servicioInteres.agregarInteres(primerInteres);
+                int idInteres = servicioIntereses.agregarInteres(primerInteres);
                 servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
             }
-            if (!segundoInteres.equals("")) {
-                segundoInteres = segundoInteres.toLowerCase();
-                int idInteres = servicioInteres.agregarInteres(segundoInteres);
-                servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
+            if (segundoInteres != null) {
+                if (!segundoInteres.equals("")) {
+                    segundoInteres = segundoInteres.toLowerCase();
+                    int idInteres = servicioIntereses.agregarInteres(segundoInteres);
+                    servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
+                }
             }
-            if (!tercerInteres.equals("")) {
-                tercerInteres = tercerInteres.toLowerCase();
-                int idInteres = servicioInteres.agregarInteres(tercerInteres);
-                servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
+            if (segundoInteres != null) {
+                if (!tercerInteres.equals("")) {
+                    tercerInteres = tercerInteres.toLowerCase();
+                    int idInteres = servicioIntereses.agregarInteres(tercerInteres);
+                    servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
+                }
             }
             FXMLLoader muroLoader = new FXMLLoader();
             muroLoader.setLocation(getClass().getResource("/frontend/muro.fxml"));
             Parent parent = muroLoader.load();
             ;
             MuroController muroController = muroLoader.getController();
-            muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioInteres,
+            muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioIntereses,
                     servicioInteresPublicacion, servicioInteresUsuario);
             muroController.recibirUsuario(idUsrActual);
             muroController.cargarPublicaciones();
@@ -128,10 +132,10 @@ public class InteresesController {
     }
 
     private void cargarIntereses(ComboBox<String> interesesCombo) {
-        List<Integer> intereses = servicioInteres.listarIntereses();
+        List<Integer> intereses = servicioIntereses.listarIntereses();
         List<String> interesesNombre = new ArrayList<>();
         for (Integer idInteres : intereses) {
-            Interes interes = servicioInteres.buscarInteres(idInteres);
+            Interes interes = servicioIntereses.buscarInteres(idInteres);
             interesesNombre.add(interes.getNombreInteres());
         }
         interesesCombo.getItems().addAll(interesesNombre);
@@ -143,12 +147,12 @@ public class InteresesController {
     }
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
-                                 ServicioReacciones servicioReacciones, ServicioInteres servicioInteres,
+                                 ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
                                  ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
-        this.servicioInteres = servicioInteres;
+        this.servicioIntereses = servicioIntereses;
         this.servicioInteresPublicacion = servicioInteresPublicacion;
         this.servicioInteresUsuario = servicioInteresUsuario;
     }

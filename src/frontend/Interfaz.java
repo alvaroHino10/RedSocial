@@ -1,6 +1,6 @@
 package frontend;
 
-import backend.serviciointeres.ServicioInteres;
+import backend.serviciointereses.ServicioIntereses;
 import backend.serviciopublicaciones.ServicioPublicaciones;
 import backend.servicioreacciones.ServicioReacciones;
 import backend.serviciorelacionador.ServicioRelacionador;
@@ -17,17 +17,17 @@ public class Interfaz extends Application {
     private ServicioPublicaciones servicioPublicaciones;
     private ServicioUsuarios servicioUsuarios;
     private ServicioReacciones servicioReacciones;
-    private ServicioInteres servicioInteres;
+    private ServicioIntereses servicioIntereses;
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
 
     public Interfaz(ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones,
-                    ServicioUsuarios servicioUsuarios, ServicioInteres servicioInteres,
+                    ServicioUsuarios servicioUsuarios, ServicioIntereses servicioIntereses,
                     ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioUsuarios = servicioUsuarios;
         this.servicioReacciones = servicioReacciones;
-        this.servicioInteres = servicioInteres;
+        this.servicioIntereses = servicioIntereses;
         this.servicioInteresPublicacion = servicioInteresPublicacion;
         this.servicioInteresUsuario = servicioInteresUsuario;
     }
@@ -37,7 +37,7 @@ public class Interfaz extends Application {
         FXMLLoader ingresarUsuarioLoader = new FXMLLoader(getClass().getResource("/frontend/ingresarUsuario.fxml"));
         Parent parent = ingresarUsuarioLoader.load();
         IngresarUsuarioController ingresarUsuarioController = ingresarUsuarioLoader.getController();
-        ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioInteres, servicioInteresPublicacion, servicioInteresUsuario);
+        ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
         stage.setTitle("RED SOCIAL");
         stage.setScene(new Scene(parent));
         stage.show();
