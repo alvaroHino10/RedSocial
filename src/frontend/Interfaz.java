@@ -23,7 +23,7 @@ public class Interfaz extends Application {
 
     public Interfaz(ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones,
                     ServicioUsuarios servicioUsuarios, ServicioIntereses servicioIntereses,
-                    ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
+                    ServicioRelacionador servicioInteresUsuario, ServicioRelacionador servicioInteresPublicacion) {
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioUsuarios = servicioUsuarios;
         this.servicioReacciones = servicioReacciones;
@@ -37,7 +37,7 @@ public class Interfaz extends Application {
         FXMLLoader ingresarUsuarioLoader = new FXMLLoader(getClass().getResource("/frontend/ingresarUsuario.fxml"));
         Parent parent = ingresarUsuarioLoader.load();
         IngresarUsuarioController ingresarUsuarioController = ingresarUsuarioLoader.getController();
-        ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+        ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioIntereses, servicioInteresUsuario, servicioInteresPublicacion);
         stage.setTitle("RED SOCIAL");
         stage.setScene(new Scene(parent));
         stage.show();

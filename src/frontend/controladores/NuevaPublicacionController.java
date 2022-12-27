@@ -60,7 +60,7 @@ public class NuevaPublicacionController {
         Parent parent = publicacionLoader.load();
         PublicacionController publicacionController = publicacionLoader.getController();
         publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresUsuario, servicioInteresPublicacion);
         Stage stage = (Stage) btnPublicar.getScene().getWindow();
         stage.close();
         this.idPubliActual = servicioPublicaciones.agregarPublicacion(idUsrActual, contenidoPubli);
@@ -80,7 +80,7 @@ public class NuevaPublicacionController {
             this.nuevoInteresText.setDisable(true);
             this.agregarNuevoInteres.setDisable(true);
             this.nuevoInteresText.setPromptText("Solo puedes agregar un interes nuevo");
-            int idInteres = this.servicioIntereses.agregarInteres(this.nuevoInteres);
+            int idInteres = this.servicioIntereses.registrarInteres(this.nuevoInteres);
             actualizarInteresesLabel(labelInteresesAgregados.getText(), this.nuevoInteres);
             if (interesesPorRegistrar == null) interesesPorRegistrar = new ArrayList<>();
             interesesPorRegistrar.add(idInteres);
@@ -112,7 +112,7 @@ public class NuevaPublicacionController {
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
-                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresUsuario,  ServicioRelacionador servicioInteresPublicacion) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;

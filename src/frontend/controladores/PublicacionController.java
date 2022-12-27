@@ -108,22 +108,29 @@ public class PublicacionController {
     public void reaccion(ActionEvent actionEvent) {
         String button = ((Button) actionEvent.getSource()).getId();
         int idUsrReaccion = muroController.getIdUsrActual();
+        Usuario dueno = buscarDueno();
         for (Emocion emocion : Emocion.values()) {
             if (emocion.name().equals(button)) {
                 servicioReacciones.agregarReaccion(idPubliActual, idUsrReaccion, emocion);
                 break;
             }
         }
-        contarReaccionesPublicacion(idPubliActual);
+        if (!dueno.esUsuario()){
+            contarReaccionesPublicacion(idPubliActual);
+        }
         actualizarContadorReacciones(idPubliActual);
     }
 
     public void contarReaccionesPublicacion(int idPubli) {
         Publicacion publicacion = servicioPublicaciones.buscarPublicacion(idPubli);
         int idUsrDueno = publicacion.getIdUsuario();
+        Usuario usuario = servicioUsuarios.buscarUsuario(idUsrDueno);
         boolean tieneTres = servicioReacciones.tieneMasDeTresReacciones(idPubli);
         if (tieneTres) {
-            servicioUsuarios.cambiarAUsuario(idUsrDueno);
+            String nombreUsr = servicioUsuarios.cambiarAUsuario(idUsrDueno);
+            if (usuario.esUsuario()){
+                muroController.agregarCambioUsuario(nombreUsr);
+            }
         }
     }
 
@@ -175,7 +182,7 @@ public class PublicacionController {
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
-                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresUsuario, ServicioRelacionador servicioInteresPublicacion) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
@@ -186,5 +193,11 @@ public class PublicacionController {
 
     public void agregarControllerMuro(MuroController muroController) {
         this.muroController = muroController;
+    }
+
+    private Usuario buscarDueno() {
+        Publicacion publicacion = servicioPublicaciones.buscarPublicacion(idPubliActual);
+        int idUsrDueno = publicacion.getIdUsuario();
+        return servicioUsuarios.buscarUsuario(idUsrDueno);
     }
 }

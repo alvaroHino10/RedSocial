@@ -49,11 +49,11 @@ public class ServicioUsuarios {
         return new ArrayList<>(datosUsuario.keySet());
     }
 
-    public void cambiarAUsuario(int idUsr){
+    public String cambiarAUsuario(int idUsr){
         Usuario usuario = datosUsuario.get(idUsr);
         String nombre = usuario.cambiarAUsuario();
-        System.out.println(nombre + " ahora es un USUARIO");
         guardarDatosUsuario();
+        return nombre;
     }
 
     private void guardarDatosUsuario() {

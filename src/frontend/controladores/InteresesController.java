@@ -57,20 +57,20 @@ public class InteresesController {
         } else {
             if (!primerInteres.equals("")) {
                 primerInteres = primerInteres.toLowerCase();
-                int idInteres = servicioIntereses.agregarInteres(primerInteres);
+                int idInteres = servicioIntereses.registrarInteres(primerInteres);
                 servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
             }
             if (segundoInteres != null) {
                 if (!segundoInteres.equals("")) {
                     segundoInteres = segundoInteres.toLowerCase();
-                    int idInteres = servicioIntereses.agregarInteres(segundoInteres);
+                    int idInteres = servicioIntereses.registrarInteres(segundoInteres);
                     servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
                 }
             }
             if (segundoInteres != null) {
                 if (!tercerInteres.equals("")) {
                     tercerInteres = tercerInteres.toLowerCase();
-                    int idInteres = servicioIntereses.agregarInteres(tercerInteres);
+                    int idInteres = servicioIntereses.registrarInteres(tercerInteres);
                     servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
                 }
             }
@@ -80,7 +80,7 @@ public class InteresesController {
             ;
             MuroController muroController = muroLoader.getController();
             muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones, servicioIntereses,
-                    servicioInteresPublicacion, servicioInteresUsuario);
+                    servicioInteresUsuario, servicioInteresPublicacion);
             muroController.recibirUsuario(idUsrActual);
             muroController.cargarPublicaciones();
             Stage stage = (Stage) guardarIntereses.getScene().getWindow();
@@ -148,7 +148,7 @@ public class InteresesController {
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
-                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresUsuario,  ServicioRelacionador servicioInteresPublicacion) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;

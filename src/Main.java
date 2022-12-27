@@ -7,7 +7,7 @@ import frontend.IU;
 import java.io.IOException;
 
 public class Main{
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ServicioPublicaciones servicioPublicaciones = new  ServicioPublicaciones();
         ServicioUsuarios servicioUsuarios = new ServicioUsuarios();
         ServicioReacciones servicioReacciones = new ServicioReacciones();
@@ -15,7 +15,7 @@ public class Main{
         ServicioRelacionador servicioInteresPublicacion = new ServicioRelacionador("InteresPublicacion");
         ServicioRelacionador servicioInteresUsuario = new ServicioRelacionador("InteresUsuario");
         IU IU = new IU(servicioPublicaciones, servicioReacciones, servicioUsuarios, servicioIntereses,
-                servicioInteresPublicacion, servicioInteresUsuario);
+                servicioInteresUsuario, servicioInteresPublicacion);
         IU.iniciar();
     }
 }

@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="842a161c-7570-4484-bc96-ae7b877da1d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Interes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InteresPublicacion.csv" beforeDir="false" afterPath="$PROJECT_DIR$/InteresPublicacion.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InteresUsuario.csv" beforeDir="false" afterPath="$PROJECT_DIR$/InteresUsuario.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Publicaciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Publicaciones.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reacciones.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Reacciones.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/serviciointeres/Interes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciointereses/Interes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/serviciointeres/ServicioInteres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciointereses/ServicioIntereses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/serviciointereses/ServicioIntereses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciointereses/ServicioIntereses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/serviciousuarios/ServicioUsuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/IU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/IU.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/Interfaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/Interfaz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/IngresarUsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/IngresarUsuarioController.java" afterDir="false" />
@@ -14,6 +19,9 @@
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/MuroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/NuevaPublicacionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/controladores/PublicacionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/muro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/muro.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/publicacion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/publicacion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/recursos/estilos.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +65,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/UMSS/ARQUI SOFTWARE/redSocial/AbigailGalzin/AbigailGalzin/Red_Social-ArqSW&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/UMSS/ARQUI SOFTWARE/redSocial/AlvaroHinojosa/redSocial&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -71,6 +79,7 @@
       <recent name="frontend/controladores" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\UMSS\ARQUI SOFTWARE\redSocial\AlvaroHinojosa\redSocial" />
       <recent name="D:\UMSS\ARQUI SOFTWARE\redSocial\social\src\Imagenes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -134,7 +143,9 @@
       <workItem from="1671931698470" duration="1925000" />
       <workItem from="1672057941526" duration="2881000" />
       <workItem from="1672061111356" duration="299000" />
-      <workItem from="1672093072125" duration="415000" />
+      <workItem from="1672093072125" duration="1141000" />
+      <workItem from="1672096490837" duration="6901000" />
+      <workItem from="1672123713586" duration="319000" />
     </task>
     <servers />
   </component>

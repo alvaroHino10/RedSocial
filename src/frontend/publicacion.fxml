@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="vBoxPrincipal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="607.0" spacing="10.0" styleClass="post-background" stylesheets="@recursos/estilos.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.PublicacionController">
+<VBox fx:id="vBoxPrincipal" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="607.0" spacing="10.0" styleClass="post-background" stylesheets="@recursos/estilos.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controladores.PublicacionController">
    <children>
       <HBox alignment="CENTER" prefHeight="60.0" spacing="10.0">
          <children>
@@ -66,7 +66,6 @@
             <Font name="Segoe UI Historic" size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgPublicacion" fitHeight="150.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
       <StackPane alignment="CENTER_LEFT">
          <children>
             <HBox alignment="CENTER_LEFT" spacing="10.0">
@@ -181,95 +180,23 @@
                </padding></HBox>
          </children>
       </StackPane>
-      <HBox fx:id="hBoxReacciones" maxWidth="-Infinity">
+      <HBox fx:id="hBoxReacciones" maxWidth="-Infinity" prefHeight="29.0" prefWidth="505.0">
          <children>
-            <Button fx:id="Like" layoutX="129.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/like.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Love" layoutX="544.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/love.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Happy" layoutX="228.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/haha.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Care" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/care.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Indifferent" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/dont-care.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Mad" layoutX="500.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/mad.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Sad" layoutX="484.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/sad.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Explain" layoutX="468.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/thinking.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="Surprise" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imagenes/wow.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <Button fx:id="Like" layoutX="129.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Love" layoutX="544.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Happy" layoutX="228.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Care" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Indifferent" layoutX="496.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Mad" layoutX="500.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Sad" layoutX="484.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Explain" layoutX="468.0" layoutY="12.0" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
+            <Button fx:id="Surprise" mnemonicParsing="false" onAction="#reaccion" style="-fx-background-color: transparent;" />
          </children>
          <padding>
             <Insets bottom="2.0" left="20.0" right="20.0" top="2.0" />
          </padding>
       </HBox>
-      <HBox styleClass="top-border" stylesheets="@recursos/estilos.css">
+      <HBox styleClass="top-border">
          <children>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                <children>

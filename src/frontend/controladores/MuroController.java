@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -32,6 +33,8 @@ public class MuroController {
     private Button cerrarSesion;
     @FXML
     private VBox vBoxPublicaciones;
+    @FXML
+    private VBox vBoxNotificaciones;
 
     private ServicioReacciones servicioReacciones;
     private ServicioPublicaciones servicioPublicaciones;
@@ -40,7 +43,6 @@ public class MuroController {
     private ServicioRelacionador servicioInteresPublicacion;
     private ServicioRelacionador servicioInteresUsuario;
     private int idUsrActual;
-    private String nombreUsr;
 
     public void agregarNuevaPublicacion(Parent parent) {
         vBoxPublicaciones.getChildren().add(parent);
@@ -52,7 +54,7 @@ public class MuroController {
         Parent parent = nuevaPublicacionLoader.load();
         NuevaPublicacionController nuevaPublicacionController = nuevaPublicacionLoader.getController();
         nuevaPublicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresUsuario,  servicioInteresPublicacion);
         nuevaPublicacionController.recibirUsuario(idUsrActual);
         nuevaPublicacionController.agregarControllerMuro(this);
         nuevaPublicacionController.cargarIntereses();
@@ -91,7 +93,7 @@ public class MuroController {
                 Parent contPublicacion = publicacionLoader.load();
                 PublicacionController publicacionController = publicacionLoader.getController();
                 publicacionController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                        servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+                        servicioIntereses, servicioInteresUsuario,  servicioInteresPublicacion);
                 publicacionController.actualizarDatos(publicacion.getIdUsuario(), idPub);
                 publicacionController.agregarControllerMuro(this);
                 agregarNuevaPublicacion(contPublicacion);
@@ -105,7 +107,7 @@ public class MuroController {
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
-                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresUsuario, ServicioRelacionador servicioInteresPublicacion) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
@@ -127,12 +129,18 @@ public class MuroController {
         Parent parent = ingresarUsuario.load();
         IngresarUsuarioController ingresarUsuarioController = ingresarUsuario.getController();
         ingresarUsuarioController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresUsuario, servicioInteresPublicacion);
         Stage stage = (Stage) cerrarSesion.getScene().getWindow();
         stage.setScene(new Scene(parent));
         stage.close();
         stage.show();
     }
+
+    public void agregarCambioUsuario(String nombreUsr){
+        Label labelNotificacion = new Label(nombreUsr + " es ahora un USUARIO!");
+        vBoxNotificaciones.getChildren().add(labelNotificacion);
+    }
+
     public int getIdUsrActual(){
         return idUsrActual;
     }

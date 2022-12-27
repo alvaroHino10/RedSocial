@@ -20,7 +20,7 @@ public class IU{
 
     public IU(ServicioPublicaciones servicioPublicaciones, ServicioReacciones servicioReacciones,
               ServicioUsuarios servicioUsuarios, ServicioIntereses servicioIntereses,
-              ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
+              ServicioRelacionador servicioInteresUsuario, ServicioRelacionador servicioInteresPublicacion) {
         this.servicioReacciones = servicioReacciones;
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
@@ -31,7 +31,7 @@ public class IU{
 
     public void iniciar(){
         final Interfaz interfaz = new Interfaz(servicioPublicaciones, servicioReacciones, servicioUsuarios,
-                servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+                servicioIntereses, servicioInteresUsuario, servicioInteresPublicacion);
         try {
             interfaz.init();
         } catch (Exception e) {

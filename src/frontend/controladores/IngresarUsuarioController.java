@@ -35,7 +35,7 @@ public class IngresarUsuarioController {
 
     public void iniciarServicios(ServicioUsuarios servicioUsuarios, ServicioPublicaciones servicioPublicaciones,
                                  ServicioReacciones servicioReacciones, ServicioIntereses servicioIntereses,
-                                 ServicioRelacionador servicioInteresPublicacion, ServicioRelacionador servicioInteresUsuario) {
+                                 ServicioRelacionador servicioInteresUsuario, ServicioRelacionador servicioInteresPublicacion) {
         this.servicioUsuarios = servicioUsuarios;
         this.servicioPublicaciones = servicioPublicaciones;
         this.servicioReacciones = servicioReacciones;
@@ -56,7 +56,7 @@ public class IngresarUsuarioController {
             parent = muroLoader.load();
             InteresesController interesesController = muroLoader.getController();
             interesesController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                    servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+                    servicioIntereses, servicioInteresUsuario,  servicioInteresPublicacion);
             interesesController.cargarIntereses();
             interesesController.recibirUsuario(idUsrActual);
         } else {
@@ -64,7 +64,7 @@ public class IngresarUsuarioController {
             parent = muroLoader.load();
             MuroController muroController = muroLoader.getController();
             muroController.iniciarServicios(servicioUsuarios, servicioPublicaciones, servicioReacciones,
-                    servicioIntereses, servicioInteresPublicacion, servicioInteresUsuario);
+                    servicioIntereses, servicioInteresUsuario, servicioInteresPublicacion);
             muroController.recibirUsuario(idUsrActual);
             muroController.cargarPublicaciones();
         }

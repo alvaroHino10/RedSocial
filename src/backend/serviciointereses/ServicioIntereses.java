@@ -17,7 +17,7 @@ public class ServicioIntereses {
         this.contsIds = intereses.size();
     }
 
-    public int agregarInteres(String nombre){
+    public int registrarInteres(String nombre){
         int idActual = contsIds + 1;
         Interes interes = new Interes(idActual, nombre);
         int existeInteres = existeInteres(interes);
@@ -32,6 +32,10 @@ public class ServicioIntereses {
 
     public List<Integer> listarIntereses(){
         return new ArrayList<>(intereses.keySet());
+    }
+
+    public Interes buscarInteres(int idInteres) {
+        return intereses.get(idInteres);
     }
 
     private int existeInteres(Interes interes) {
@@ -71,9 +75,5 @@ public class ServicioIntereses {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public Interes buscarInteres(int idInteres) {
-        return intereses.get(idInteres);
     }
 }
