@@ -18,6 +18,7 @@ public class ServicioIntereses {
     }
 
     public int registrarInteres(String nombre){
+        nombre = nombre.toLowerCase();
         int idActual = contsIds + 1;
         Interes interes = new Interes(idActual, nombre);
         int existeInteres = existeInteres(interes);

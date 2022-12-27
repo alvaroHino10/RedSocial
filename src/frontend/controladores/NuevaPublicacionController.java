@@ -73,7 +73,6 @@ public class NuevaPublicacionController {
 
     @FXML
     public void agregarNuevoInteres(ActionEvent event) {
-        this.nuevoInteres = this.nuevoInteres.toLowerCase();
         int existeInteres = buscarInteres(this.nuevoInteres);
         if (existeInteres == -1){
             this.nuevoInteresText.clear();

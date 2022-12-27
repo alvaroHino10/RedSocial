@@ -52,7 +52,7 @@ public class InteresesController {
 
     @FXML
     public void guardarIntereses(ActionEvent event) throws IOException {
-        if (primerInteres == null) {
+        if (primerInteresText.getText() == null) {
             interesesNulos();
         } else {
             if (!primerInteres.equals("")) {
@@ -60,14 +60,14 @@ public class InteresesController {
                 int idInteres = servicioIntereses.registrarInteres(primerInteres);
                 servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
             }
-            if (segundoInteres != null) {
+            if (segundoInteresText.getText() != null) {
                 if (!segundoInteres.equals("")) {
                     segundoInteres = segundoInteres.toLowerCase();
                     int idInteres = servicioIntereses.registrarInteres(segundoInteres);
                     servicioInteresUsuario.agregarInteresRelacionado(idInteres, idUsrActual);
                 }
             }
-            if (segundoInteres != null) {
+            if (tercerInteresText.getText() != null) {
                 if (!tercerInteres.equals("")) {
                     tercerInteres = tercerInteres.toLowerCase();
                     int idInteres = servicioIntereses.registrarInteres(tercerInteres);
